@@ -23,6 +23,7 @@
  
  ## Detailed walkthrough of puzzles
  
+ ![20201012_104354](https://user-images.githubusercontent.com/54489423/95759982-772d5300-0c78-11eb-87ae-1f5a0746dde7.jpg)
  
  
  
