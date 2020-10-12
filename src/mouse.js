@@ -10,11 +10,10 @@ function Mouse(x, y) {
     this.y = y;
     this.speedX = 0;
     this.speedY = 0;
+   
 }
 
-Mouse.prototype.draw = function draw(ctx){
-    // ctx = gameView.ctx;
-    // console.log(this.width);
+Mouse.prototype.draw = function draw(ctx, walls){
     this.move();
     this.isOutOfBounds([this.x, this.y])
     ctx.fillStyle = "rgb(248,0,0)";
@@ -35,27 +34,50 @@ Mouse.prototype.stop = function stop() {
   }
 
   Mouse.prototype.isOutOfBounds = function isOutOfBounds(pos) {
-    console.log(pos[0])
+   
     // console.log(game.HEIGHT)
-    if (pos[0] < 0){
-            this.reset(1, pos[1])
+    if (pos[0] < 10){
+            this.reset(11, pos[1])
     } 
-    if (pos[1] < 0){
+    if (pos[1] < 10){
         console.log(pos[1])
-        this.reset(pos[0], 1)
+        this.reset(pos[0], 11)
     } 
-     if(pos[0] > 1170) {
-        this.reset(1170, pos[1])
+     if(pos[0] > 1160) {
+        this.reset(1160, pos[1])
      }
-    if(pos[1] > 568){  
-        this.reset(pos[0], 568)
+    if(pos[1] > 558){  
+        this.reset(pos[0], 558)
     }
   };
 
   Mouse.prototype.reset = function reset(x, y){
-    this.x = x
-    this.y = y
+    this.x = x;
+    this.y = y;
   };
+
+  Mouse.prototype.resetLeft = function resetLeft(){
+    this.x -= 10
+    this.y = this.y
+  };
+
+  Mouse.prototype.resetUp = function resetUp(){
+    this.x = this.x
+    this.y -= 10
+  };
+
+  Mouse.prototype.resetDown = function resetDown(){
+    this.x = this.x
+    this.y += 10
+  };
+
+  Mouse.prototype.resetRight = function resetRight(){
+    this.x += 10
+    this.y = this.y
+  };
+
+
+
 
 
 
