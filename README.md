@@ -3,6 +3,12 @@
  
  I would like to create a mini zelda dungeon with small easy puzzles
  
+ - User can see entire map (non-scrolling)
+ 
+ - User cannot lose, but there is a Quit button
+ 
+ 
+ 
  ## MVP
 
 - User can move character around the canvas
@@ -30,5 +36,5 @@ I will be using Canvas to complete this project
 
 - Day 4 , add styling 
 
-- Day 5- complete bonsus features (More puzzles :) )
+- Day 5- complete bonsus features (A boss level
 
