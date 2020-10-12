@@ -1,7 +1,9 @@
  
- ##Overview##
+ ## Overview
  
  I would like to create a mini zelda dungeon with small easy puzzles
+ 
+ ## MVP
 
 - User can move character around the canvas
 
@@ -13,9 +15,12 @@
 
 - User cannot move onto final room until completing all the puzzles
 
+## Technologies
 
 I will be using Canvas to complete this project
 
+
+## Timeframe
 
 - Day 1, I would like to have a room that a character can move around in 
 
