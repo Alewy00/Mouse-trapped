@@ -1,180 +1,75 @@
-1. create your new project directory and `cd` into it 
-2. `git init`
-3. create a simple `.gitignore`
-        
-        # .gitignore
+ 
+ ## Overview
+ 
+ I would like to create a mini zelda dungeon with small easy puzzles
+ 
+ - User can see entire map (non-scrolling)
+ 
+ - User cannot lose, but there is a Quit button
+ 
+ 
+ ## Puzzle Explanation
+ 
+ The character must collect 3 keys to win the game (player starts with the first key and a boulder)
+ 
+ 
+ - The puzzles consist of clicking buttons to move blocks into 2 forms
+ 
+ 1) Tile form (Character can move over block)
+ 
+ 2) Wall form (Character cannot move past block)
+ 
+ - The user can roll the boulder to pass puzzles
+ 
+ ## Detailed walkthrough of puzzles
+ 
+ Puzzle 1) 
+ - Player Clicks on Green button to bring block into **tile** form 
+ - Player places boulder parrallel from red button 
+ - Now that red blocks are in tile form in room #2 player can click blue button and come back to retrieve the yellow key
+ 
+ Puzzle 2) 
+  (subject to change)
+ - Player puts the green blocks in room 2 into tile form
+ - Player rolls the boulder onto the green/pink button 
+ - player can now retrieve the final key
+ 
+ 
+ 
+ ![20201012_104354](https://user-images.githubusercontent.com/54489423/95759982-772d5300-0c78-11eb-87ae-1f5a0746dde7.jpg)
+ 
+ 
+ 
+ ## MVP
 
-        /node_modules/
-4. `npm init` and follow prompts
-5. install dev dependencies
-   
-        npm install @babel/core @babel/preset-env autoprefixer babel-loader css-loader fibers file-loader mini-css-extract-plugin node-sass postcss-loader sass sass-loader style-loader url-loader webpack webpack-cli webpack-dev-server webpack-merge --save-dev
+- User can move character around the canvas
 
-6. create basic `/src` subdirectory file structure
+- User cannot move character off the screen
 
-        - src/
-            - index.js
-            styles/
-                - index.scss
-            scripts/
+- User can interact with interactive objects
 
-7. In your root directory, create `webpack.common.js`
+- User can move from room to room
 
-    ```JavaScript
-    // webpack.common.js
+- User cannot move onto final room until completing all the puzzles
 
-    const path = require("path");
-    const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-    const outputDir = "./dist";
+## WireFrame 
 
-    module.exports = {
-    entry: path.resolve(__dirname, "src", "index.js"), //
-    output: {
-        path: path.join(__dirname, outputDir),
-        filename: "[name].js",
-        publicPath: "/dist/"
-    },
-    resolve: {
-        extensions: [".js"] // if we were using React.js, we would include ".jsx"
-    },
-    module: {
-        rules: [
-        {
-            test: /\.js$/, // if we were using React.js, we would use \.jsx?$/
-            use: {
-            loader: "babel-loader",
-            options: {
-                presets: ["@babel/preset-env"],
-                plugins: ["@babel/plugin-proposal-optional-chaining"],
-                exclude: /node_modules/
-            } // if we were using React.js, we would include "react"
-            }
-        },
-        {
-            test: /\.css$/,
-            use: [
-            {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                // you can specify a publicPath here
-                // by default it uses publicPath in webpackOptions.output
-                publicPath: "../",
-                hmr: process.env.NODE_ENV === "development"
-                }
-            },
-            "css-loader",
-            "postcss-loader"
-            ]
-        },
-        {
-            test: /\.(png|jpe?g|gif)$/i,
-            use: [
-            {
-                loader: "file-loader",
-                options: {
-                // you can specify a publicPath here
-                // by default it uses publicPath in webpackOptions.output
-                name: "[name].[ext]",
-                outputPath: "images/",
-                publicPath: "images/"
-                }
-            }
-            ]
-        },
-        {
-            test: /\.scss/,
-            use: [
-            {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                // you can specify a publicPath here
-                // by default it uses publicPath in webpackOptions.output
-                publicPath: "../",
-                hmr: process.env.NODE_ENV === "development"
-                }
-            },
-            "css-loader",
-            "sass-loader",
-            "postcss-loader"
-            ]
-        }
-        ]
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // all options are optional
-        filename: "[name].css",
-        chunkFilename: "[id].css",
-        ignoreOrder: false // Enable to remove warnings about conflicting order
-        }),
-        require("autoprefixer")
-    ]
-    };
+![wireframe](https://user-images.githubusercontent.com/54489423/95761784-cb393700-0c7a-11eb-9daf-a180dfcb0e85.jpg)
 
-    ```
+## Technologies
 
-8. Create `webpack.dev.js`
+I will be using Canvas to complete this project
 
-    ```JavaScript
-    // wepack.dev.js
-    const merge = require("webpack-merge");
-    const common = require("./webpack.common.js");
 
-    module.exports = merge(common, {
-        mode: "development",
-        devtool: "inline-source-map",
-        devServer: {
-            contentBase: "./",
-            watchContentBase: true,
-            open: "Google Chrome"
-        }
-    });
-    ```
+## Timeframe
 
-9. Create `webpack.prod.js`
+- Day 1, I would like to have a room that a character can move around in 
 
-    ```JavaScript
-    // webpack.prod.js
-    const merge = require("webpack-merge");
-    const common = require("./webpack.common.js");
+- Day 2, I would like to have an inteactive puzzle in day the first room
 
-    module.exports = merge(common, {
-        mode: "production",
-        devtool: "source-map"
-    });
-    ```
+- Day3, Complete other 2 rooms with puzzles 
 
-10. create `postcss.config.js`
+- Day 4 , add styling 
 
-    ```JavaScript
-    // postcss.config.js
-    module.exports = {
-        plugins: {
-            autoprefixer: {}
-        }
-    };
-    ```
+- Day 5- complete bonsus features (A boss level
 
-11. add `browserlist` key and update `scripts` in `package.json`
-
-    ```JavaScript
-    // package.json
-    "browserslist": [
-        "last 1 version",
-        "> 1%",
-        "maintained node versions",
-        "not dead"
-    ],
-    "scripts": {
-        "start": "webpack-dev-server --config webpack.dev.js",
-        "webpack:watch": "webpack --watch --config webpack.dev.js",
-        "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
-    },
-    ```
-
-12. create `index.scss` in `/src/styles`
-
-13. create `index.js` in `/src` directory and import style `/src/styles/index.scss`
-
-14. create `index.html` and import `dist/main.css` and `dist/main.js` appropriately
