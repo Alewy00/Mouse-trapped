@@ -8,6 +8,23 @@
  - User cannot lose, but there is a Quit button
  
  
+ ## Puzzle Explanation
+ 
+ The character must collect 3 keys to win the game (player starts with the first key and a boulder)
+ 
+ 
+ - The puzzles consist of clicking buttons to move blocks into 2 forms
+ 
+ 1) Tile form (Character can move over block)
+ 
+ 2) Wall form (Character cannot move past block)
+ 
+ - The user can roll the boulder to pass puzzles
+ 
+ ## Detailed walkthrough of puzzles
+ 
+ 
+ 
  
  ## MVP
 
