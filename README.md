@@ -23,6 +23,19 @@
  
  ## Detailed walkthrough of puzzles
  
+ Puzzle 1) 
+ - Player Clicks on Green button to bring block into **tile** form 
+ - Player places boulder parrallel from red button 
+ - Now that red blocks are in tile form in room #2 player can click blue button and come back to retrieve the yellow key
+ 
+ Puzzle 2) 
+  (subject to change)
+ - Player puts the green blocks in room 2 into tile form
+ - Player rolls the boulder onto the green/pink button 
+ - player can now retrieve the final key
+ 
+ 
+ 
  ![20201012_104354](https://user-images.githubusercontent.com/54489423/95759982-772d5300-0c78-11eb-87ae-1f5a0746dde7.jpg)
  
  
