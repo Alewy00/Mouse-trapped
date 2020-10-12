@@ -52,6 +52,10 @@
 
 - User cannot move onto final room until completing all the puzzles
 
+## WireFrame 
+
+![wireframe](https://user-images.githubusercontent.com/54489423/95761784-cb393700-0c7a-11eb-9daf-a180dfcb0e85.jpg)
+
 ## Technologies
 
 I will be using Canvas to complete this project
