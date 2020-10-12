@@ -1,4 +1,7 @@
-- I would like to create a mini zelda dungeon with small easy puzzles
+ 
+ *Overview* 
+ 
+ I would like to create a mini zelda dungeon with small easy puzzles
 
 - User can move character around the canvas
 
