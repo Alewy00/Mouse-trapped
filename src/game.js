@@ -5,7 +5,7 @@ const Block = require("./block")
 const Button = require("./button")
 
 function Game() {
-    mouse = new Mouse(400, 200);
+    mouse = new Mouse(20, 600);
     walls = [];
     blocks = [];
     buttons = [];
@@ -37,28 +37,28 @@ function Game() {
     this.drawButton(35, 35, 1150 ,100, blocks,"rgb(255,20,147)")
     // Orange Wall
     this.drawBlock(950, 20, 240, 320, "rgba(248, 148, 6, 1)", false)
-    this.drawButton(35, 35, 760 ,430, blocks,"rgba(248, 148, 6, 1)")
+    // this.drawButton(35, 35, 760 ,430, blocks,"rgba(248, 148, 6, 1)")
     // Purple wall 
     this.drawBlock(20, 250, 240, 340, "rgba(140, 20, 252, 1)", false)
     this.drawBlock(20, 250, 1000, 340, "rgba(140, 20, 252, 1)", true)
     this.drawBlock(190, 20, 1000, 340, "rgba(140, 20, 252, 1)", true)
     this.drawButton(35, 35, 15 ,550, blocks,"rgba(140, 20, 252, 1)")
-    this.drawButton(35, 35, 290 ,550, blocks,"rgba(140, 20, 252, 1)")
+    // this.drawButton(35, 35, 290 ,550, blocks,"rgba(140, 20, 252, 1)")
     // Bottom Blue wall
-    this.drawBlock(20, 100, 260, 490, "rgb(255,20,147)", true)
-    this.drawBlock(20, 100, 340, 490, "rgb(255,20,147)", true)
-    this.drawBlock(100, 20, 260, 490, "rgb(255,20,147)", true)
+//    this.drawBlock(20, 100, 260, 490, "rgb(255,20,147)", true)
+//     this.drawBlock(20, 100, 340, 490, "rgb(255,20,147)", true)
+//     this.drawBlock(100, 20, 260, 490, "rgb(255,20,147)", true) 
      // Yellow Maze
-     this.drawBlock(200, 20, 360, 490, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(400, 20, 260, 400, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(20, 100, 550, 490, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(200, 20, 550, 570, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(20, 100, 650, 400, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(20, 190, 730, 400, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(200, 20, 730, 400, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(20, 140, 910, 400, "rgba(245, 229, 27, 1)", false)
-     this.drawBlock(20, 60, 260, 340, "rgba(245, 229, 27, 1)", false)
-     this.drawButton(35, 35, 480 ,530, blocks,"rgba(245, 229, 27, 1)")
+    //  this.drawBlock(200, 20, 360, 490, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(400, 20, 260, 400, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(20, 100, 550, 490, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(200, 20, 550, 570, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(20, 100, 650, 400, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(20, 190, 730, 400, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(200, 20, 730, 400, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(20, 140, 910, 400, "rgba(245, 229, 27, 1)", false)
+    //  this.drawBlock(20, 60, 260, 340, "rgba(245, 229, 27, 1)", false)
+    //  this.drawButton(35, 35, 480 ,530, blocks,"rgba(245, 229, 27, 1)")
 
 
 
@@ -82,7 +82,7 @@ Game.HEIGHT = 600;
     }
 
     Game.prototype.drawButton = function drawWall(w, h, x, y, block, color) {
-        let button = new Button(w, h, x, y, block, color)
+        let button = new Button(this, w, h, x, y, block, color)
         buttons.push(button)
     }
 
