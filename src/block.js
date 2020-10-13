@@ -13,12 +13,31 @@ Block.prototype.draw = function draw(ctx){
     // ctx = gameView.ctx;
     // console.log(this.height);
     // console.log("wall drew")
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+  
+    if (!this.tile){
+        ctx.save();
+        // ctx.translate(this.x, this.y);
+        ctx.shadowBlur = 10;
+        // ctx.shadowColor = this.color;
+        ctx.shadowOffsetY=5;
+        //  ctx.shadowOffsetX=5;
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.strokeRect(this.x, this.y, this.width, this.height);
+        ctx.restore();
+    }else {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height)
+    };
+    // ctx.shadowColor=this.color
+    // ctx.shadowBlur=4;
+    // ctx.shadowOffsetY=3;
+    // stop the shadowing
+    // ctx.shadowColor='rgba(0,0,0,0)';
 }
 
 
-Block.prototype.collide = function collide(mouse){
+Block.prototype.collide = function collide(mouse, boulder){
     let flagX = false;
     let flagY = false;
     const blockLeft = this.x  
@@ -29,18 +48,26 @@ Block.prototype.collide = function collide(mouse){
     const avgX = ((width + blockLeft) / 2)
     const mouseSizeX = mouse.x + mouse.width
     const mouseSizeY = mouse.y + mouse.height
+    // console.log("buolder x is " + mouseSizeX)
+    // console.log("blockLeft x is " + blockLeft)
+    // console.log("width x is " + width)
     if ( (!this.tile) && (mouseSizeX  > blockLeft && mouseSizeX  < width ) &&
     (mouseSizeY  > blockUp && mouseSizeY < height )) {
-        if (this.lastX) {
+        if (this.lastX && boulder) {
             console.log("x first")
             this.collideX(mouse, mouseSizeX, avgX)
             this.collide(mouse)
-        }else{
+        }else if(!this.lastX && boulder){
             console.log("y first")
             this.collideY(mouse, mouseSizeY, avgY)
             this.collide(mouse)
+        }else{
+            // console.log("true")
+            return true;
         }
     }
+    // console.log("false")
+    return false;
 }
 
     Block.prototype.collideX = function collideX(mouse, mouseSizeX, avgX){   
@@ -48,12 +75,12 @@ Block.prototype.collide = function collide(mouse){
             console.log("reset left")
             this.lastX = true 
             mouse.resetLeft()
-            // return null;
-        }else if (mouseSizeX > avgX ){
+            // return true;
+        }else if (mouseSizeX > avgX && mouse.speedY == 0  ){
             console.log("reset right")
             this.lastX = true 
             mouse.resetRight()
-            // return null;
+            // return true;
         }else{
             ("reset flag to false")
             this.lastX = false

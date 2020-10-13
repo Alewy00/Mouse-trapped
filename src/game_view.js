@@ -46,19 +46,33 @@ GameView.prototype.animate = function animate(time) {
   })
    }
   if (GameView.key && GameView.key == "s") {
-    mouse.speedY = 2.5;
+    mouse.speedY = 3;
+    mouse.dir = [0, 1]; 
     GameView.key = false;
    
   }
   if (GameView.key && GameView.key == "w") {
     GameView.key = false;
-    mouse.speedY = -2.5; }
+    mouse.dir = [0, -1]; 
+    mouse.speedY = -3; 
+  }
+
   if (GameView.key && GameView.key == "a") {
     GameView.key = false;
-    mouse.speedX = -2.5; }
+    mouse.dir = [- 1,0]; 
+    mouse.speedX = -3; 
+  }
+
   if (GameView.key && GameView.key == "d") {
     GameView.key = false;
-    mouse.speedX = 2.5; }
+    mouse.dir = [1,0];  
+    mouse.speedX = 3; 
+  }
+  if (GameView.key && GameView.key == "f") {
+    mouse.throwBoulder()
+    GameView.key = false;
+   
+  }
   this.game.draw(this.ctx);
   requestAnimationFrame(this.animate.bind(this));
 };
