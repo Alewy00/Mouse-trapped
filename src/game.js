@@ -13,8 +13,12 @@ function Game() {
     this.drawWall(10, 700, 1190, 0)
     this.drawWall(1200, 10, 0, 0)
     this.drawWall(1200, 10, 0, 590) 
-    this.drawBlock(20, 680, 900, 10, "rgb(50,205,50)", false) // Green Wall 
-    this.drawButton(35, 35, 200 ,30, blocks[0],"rgb(50,205,50)")
+    this.drawBlock(20, 300, 900, 10, "rgb(50,205,50)", false)
+    this.drawBlock(290, 20, 900, 300, "rgb(50,205,50)", false)
+    this.drawButton(35, 35, 700 ,20, blocks,"rgb(50,205,50)")
+    // Green Wall 
+    this.drawBlock(20, 300, 200, 10, "rgb(50,205,50)", false)
+    this.drawBlock(290, 20, 900, 300, "rgb(50,205,50)", false)   
 
 }
 
@@ -44,19 +48,19 @@ Game.HEIGHT = 600;
     ctx.clearRect(0, 0, Game.WIDTH, Game.HEIGHT);
     ctx.fillStyle = Game.BG_COLOR;
     ctx.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
+    walls.forEach(function(obj){
+        obj.draw(ctx)
+    })
+    blocks.forEach(function(obj){
+        obj.draw(ctx)
+        obj.collide(mouse);
+    })
+    
+    buttons.forEach(function(obj){
+        obj.draw(ctx)
+        // obj.collideX(mouse);
+    })
     mouse.draw(ctx, walls);
-          walls.forEach(function(obj){
-              obj.draw(ctx)
-          })
-          blocks.forEach(function(obj){
-            obj.draw(ctx)
-            obj.collideX(mouse);
-        })
-
-        buttons.forEach(function(obj){
-            obj.draw(ctx)
-            // obj.collideX(mouse);
-        })
 };
 
   

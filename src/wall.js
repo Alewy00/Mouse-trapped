@@ -11,7 +11,7 @@ Wall.prototype.draw = function draw(ctx){
     // ctx = gameView.ctx;
     // console.log(this.height);
     // console.log("wall drew")
-    ctx.fillStyle = "rgb(50,205,50)";
+    ctx.fillStyle = "rgb(210,105,30)";
     ctx.fillRect(this.x, this.y, this.width, this.height);
     
 }

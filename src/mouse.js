@@ -40,7 +40,7 @@ Mouse.prototype.stop = function stop() {
             this.reset(11, pos[1])
     } 
     if (pos[1] < 10){
-        console.log(pos[1])
+        // console.log(pos[1])
         this.reset(pos[0], 11)
     } 
      if(pos[0] > 1160) {
@@ -57,22 +57,22 @@ Mouse.prototype.stop = function stop() {
   };
 
   Mouse.prototype.resetLeft = function resetLeft(){
-    this.x -= 10
-    this.y = this.y
+    this.x -= 5
+    this.y = this.y 
   };
 
   Mouse.prototype.resetUp = function resetUp(){
     this.x = this.x
-    this.y -= 10
+    this.y -= 5
   };
 
   Mouse.prototype.resetDown = function resetDown(){
     this.x = this.x
-    this.y += 10
+    this.y += 5
   };
 
   Mouse.prototype.resetRight = function resetRight(){
-    this.x += 10
+    this.x += 5
     this.y = this.y
   };
 

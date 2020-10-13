@@ -46,19 +46,19 @@ GameView.prototype.animate = function animate(time) {
   })
    }
   if (GameView.key && GameView.key == "s") {
-    mouse.speedY = 3;
+    mouse.speedY = 2.5;
     GameView.key = false;
    
   }
   if (GameView.key && GameView.key == "w") {
     GameView.key = false;
-    mouse.speedY = -3; }
+    mouse.speedY = -2.5; }
   if (GameView.key && GameView.key == "a") {
     GameView.key = false;
-    mouse.speedX = -3; }
+    mouse.speedX = -2.5; }
   if (GameView.key && GameView.key == "d") {
     GameView.key = false;
-    mouse.speedX = 3; }
+    mouse.speedX = 2.5; }
   this.game.draw(this.ctx);
   requestAnimationFrame(this.animate.bind(this));
 };
