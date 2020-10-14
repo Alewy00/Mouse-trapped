@@ -85,8 +85,9 @@ Button.prototype.maze = function maze(block, played){
             game.blocks.forEach(function(block){
                 if(block.color != "rgba(140, 20, 252, 1)"){
                     block.tile = false
-                    exit.tile = false
+                    exit.tile = true
                     entrance.tile = true
+                    button.game.maze.tile = false 
                 }
                 
             })

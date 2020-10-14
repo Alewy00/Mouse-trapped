@@ -14,6 +14,7 @@ function Game() {
     this.playing = false
     this.instructions = new Instructions(400, 200)
     first_time = true;
+    this.maze = ""
     // boulder = "";
     this.drawBlock(10, 600, 0, 0, "rgb(210,105,30)", false)
     this.drawBlock(10, 520, 1190, 0, "rgb(210,105,30)", false)
@@ -45,7 +46,7 @@ function Game() {
     this.drawBlock(950, 20, 240, 320, "rgba(248, 148, 6, 1)", false)
     // this.drawButton(35, 35, 760 ,430, blocks,"rgba(248, 148, 6, 1)")
     // Purple wall 
-    this.drawBlock(20, 250, 240, 340, "rgba(140, 20, 252, 1)", false)
+    this.maze= this.drawBlock(20, 250, 240, 340, "rgba(140, 20, 252, 1)", false)
     // this.drawBlock(20, 250, 1000, 340, "rgba(140, 20, 252, 1)", true)
     // this.drawBlock(190, 20, 1000, 340, "rgba(140, 20, 252, 1)", true)
     this.drawButton(35, 35, 15 ,550, this.blocks,"rgba(140, 20, 252, 1)")
