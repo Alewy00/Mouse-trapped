@@ -6,7 +6,7 @@ function Boulder(x, y, dir) {
     this.x = x;
     this.y = y;
     this.dir = dir;
-    splat = new sound("../dist/audio/splat.mp3")
+    splat = new sound("src/audio/splat.mp3")
     // this.collide.bind(this)
 }
 
@@ -22,7 +22,7 @@ Boulder.prototype.draw = function draw(ctx){
     // ctx.fillStyle = "rgb(0,0,0)";
     // ctx.fillRect(this.x, this.y, this.width, this.height);
     this.image = new Image();
-    this.image.src = '../dist/images/cheese3.png';
+    this.image.src = 'src/images/cheese3.png';
     ctx.drawImage(this.image,
         this.x,
         this.y,

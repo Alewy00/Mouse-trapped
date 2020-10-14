@@ -8,10 +8,10 @@ function Button(game, w, h, x, y, blocks, color, playing = false) {
     this.y = y;
     this.blocks = blocks;
     this.color = color;
-    mySound = new sound('../dist/audio/timer.mp3');
-    countdown = new sound("../dist/audio/FinalCountDownTrimmed.mp3")
-    buzzer = new sound("../dist/audio/buzzer.mp3")
-    click = new sound("../dist/audio/button.mp3")
+    mySound = new sound('src/audio/timer.mp3');
+    countdown = new sound("src/audio/FinalCountDownTrimmed.mp3")
+    buzzer = new sound("src/audio/buzzer.mp3")
+    click = new sound("src/audio/button.mp3")
     this.countdownPlaying =  playing
     this.timer.bind(this);
     reset = false
@@ -53,7 +53,7 @@ Button.prototype.maze = function maze(block, played){
         this.game.drawBlock(20, 100, 650, 400, "rgba(245, 229, 27, 1)", false)
         this.game.drawBlock(20, 190, 730, 400, "rgba(245, 229, 27, 1)", false)
         this.game.drawBlock(200, 20, 730, 400, "rgba(245, 229, 27, 1)", false)
-        this.game.drawBlock(20, 140, 910, 400, "rgba(245, 229, 27, 1)", false)
+        this.game.drawBlock(20, 120, 910, 400, "rgba(245, 229, 27, 1)", false)
         this.game.drawBlock(20, 60, 260, 340, "rgba(245, 229, 27, 1)", false)
         // bottom yellow button
         this.game.drawButton(35, 35, 1150 ,200, this.game.blocks,"rgba(245, 229, 27, 1)")

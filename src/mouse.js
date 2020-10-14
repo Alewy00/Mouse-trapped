@@ -28,7 +28,7 @@ Mouse.prototype.draw = function draw(ctx, walls, blocks, buttons){
     // console.log(this.dir)
     if(this.dir[0] == -1){
         this.image = new Image();
-        this.image.src = '../dist/images/mouseLeft.png';
+        this.image.src = 'src/images/mouseLeft.png';
         this.wins([this.x, this.y])
         ctx.drawImage(this.image,
             this.x,
@@ -36,7 +36,7 @@ Mouse.prototype.draw = function draw(ctx, walls, blocks, buttons){
             this.width, this.height);
     }else{
         this.image = new Image();
-        this.image.src = '../dist/images/mouse.png';
+        this.image.src = 'src/images/mouse.png';
         this.wins([this.x, this.y])
         ctx.drawImage(this.image,
             this.x,

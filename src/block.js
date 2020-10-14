@@ -49,7 +49,7 @@ Block.prototype.collide = function collide(mouse, boulder){
     const mouseSizeX = mouse.x + mouse.width
     const mouseSizeY = mouse.y + mouse.height
     if ( (!this.tile) && (mouseSizeX - 10  > blockLeft && mouseSizeX -10 < width ) &&
-    (mouseSizeY - 10 > blockUp && mouseSizeY  - 20 < height )) {
+    (mouseSizeY - 10 > blockUp && mouseSizeY  - 15 < height )) {
         if (this.lastX && boulder) {
             console.log("x first")
             this.collideX(mouse, mouseSizeX, avgX)
@@ -90,8 +90,6 @@ Block.prototype.collide = function collide(mouse, boulder){
             console.log("reset down")
             this.lastX = false 
             mouse.resetDown()
-            // mouse.resetDown()
-            // mouse.resetRight()
         }else if(mouseSizeY <= avgY && mouse.speedX == 0 ){
             console.log("reset up")
             this.lastX = false 
@@ -125,41 +123,7 @@ Block.prototype.collide = function collide(mouse, boulder){
 
 
 
-// Block.prototype.collideX = function collideX(mouse){
-//     const blockLeft = this.x 
-//     const widthLeft = this.x + this.width
-//     const avg = widthLeft + blockLeft
-//     const mouseSize = mouse.x + mouse.width
-//     // console.log(mouseSize)
 
-//     if ((!this.tile) && (mouseSize > blockLeft && mouseSize < widthLeft ))  {
-//         console.log("hit wall")
-//         if (mouseSize > avg) {
-//             mouse.resetRight()
-//         }else{
-//             mouse.resetLeft()
-//         }
-//     }
-// }
-
-// Block.prototype.collideX = function collideX(mouse){
-//     const blockUp = this.y
-//     const heightUp = this.y + this.height
-//     const avg = heightUp + blockUp
-//     const mouseSize = mouse.y + mouse.height
-//     console.log("Blockup is" + blockUp)
-//     console.log("mouse is " + mouseSize)
-//     console.log("height is" + heightUp)
-
-//     if ((!this.tile) && (mouseSize < blockUp && mouseSize > heightUp ))  {
-//         // console.log("hit upwall")
-//         if (mouseSize > avg) {
-//             mouse.resetDown()
-//         }else{
-//             mouse.resetUp()
-//         }
-//     }
-// }
  
 
 

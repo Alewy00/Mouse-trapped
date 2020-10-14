@@ -3,13 +3,17 @@ const Mouse = require("./mouse")
 const Wall = require("./wall")
 const Block = require("./block")
 const Button = require("./button")
-
+const Timer = require("./timer")
+const Instructions = require("./instructions")
 function Game() {
     this.mouse = new Mouse(500, 200);
+    this.timer = new Timer(400, 200)
     walls = [];
     this.blocks = [];
     buttons = [];
     this.playing = false
+    this.instructions = new Instructions(400, 200)
+    first_time = true;
     // boulder = "";
     this.drawBlock(10, 600, 0, 0, "rgb(210,105,30)", false)
     this.drawBlock(10, 520, 1190, 0, "rgb(210,105,30)", false)
@@ -76,6 +80,11 @@ Game.HEIGHT = 600;
     ctx.clearRect(0, 0, Game.WIDTH, Game.HEIGHT);
     ctx.fillStyle = Game.BG_COLOR;
     ctx.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
+    // if(first_time){
+    //     this.instructions.draw(ctx)
+    //     first_time = false
+    // }
+    this.timer.draw(ctx)
     walls.forEach(function(obj){
         obj.draw(ctx)
     })

@@ -1,4 +1,5 @@
 const Game = require("./game")
+const Instructions = require("./instructions")
 function GameView(game, ctx, mouse) {
     this.game = game;
     this.ctx = ctx;
@@ -6,6 +7,7 @@ function GameView(game, ctx, mouse) {
     GameView.key = false;
     this.start.bind(this);
     this.down = true
+   
 }
 
 GameView.MOVES = {
@@ -15,6 +17,9 @@ GameView.MOVES = {
   d: [1, 0],
 };
 GameView.prototype.start = function start(){
+  game = this.game
+  // this.instructions.draw(this.ctx)
+  setInterval(function(){ game.timer.seconds += 1 }, 1000);
   window.addEventListener('keydown', function (e) {
     if(this.down){
       GameView.key = e.key; 
@@ -42,7 +47,7 @@ GameView.prototype.restart = function restart(){
 
 
 GameView.prototype.animate = function animate(time) {
-  // console.log("key is " + GameView.key)
+ 
   if (GameView.key && GameView.key == "q") {
     GameView.key = false;
     buttons.forEach(function(obj){
