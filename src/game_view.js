@@ -30,6 +30,10 @@ GameView.prototype.start = function start(){
   requestAnimationFrame(this.animate.bind(this));
 }
 
+GameView.prototype.restart = function restart(){
+    
+}
+
 
 
 

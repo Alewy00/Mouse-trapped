@@ -5,8 +5,8 @@ const gameView = require("./game_view")
 
 
 function Mouse(x, y) {
-    this.width = 30;
-    this.height = 30;
+    this.width = 50;
+    this.height = 50;
     this.x = x;
     this.y = y;
     this.speedX = 0;
@@ -25,16 +25,34 @@ Mouse.prototype.draw = function draw(ctx, walls, blocks, buttons){
         this.boulder.draw(ctx)
     }
     }
-    this.isOutOfBounds([this.x, this.y])
-    ctx.fillStyle = "rgb(248,0,0)";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    // console.log(this.dir)
+    if(this.dir[0] == -1){
+        this.image = new Image();
+        this.image.src = '../dist/images/mouseLeft.png';
+        this.wins([this.x, this.y])
+        ctx.drawImage(this.image,
+            this.x,
+            this.y,
+            this.width, this.height);
+    }else{
+        this.image = new Image();
+        this.image.src = '../dist/images/mouse.png';
+        this.wins([this.x, this.y])
+        ctx.drawImage(this.image,
+            this.x,
+            this.y,
+            this.width, this.height);
+    }
+
+    // ctx.fillStyle = "rgb(248,0,0)";
+    // ctx.fillRect(this.x, this.y, this.width, this.height);
     
 }
 
 Mouse.prototype.throwBoulder = function throwBoulder(){
     // console.log("mouse dir is" + this.dir)
 
-    this.boulder = new Boulder(this.x + 10, this.y + 8, this.dir);
+    this.boulder = new Boulder(this.x + 10, this.y + 5, this.dir);
     // console.log( this.boulder)
     // boulder.move(this.dir) 
 }
@@ -53,22 +71,14 @@ Mouse.prototype.stop = function stop() {
     this.speedY = 0;
   }
 
-  Mouse.prototype.isOutOfBounds = function isOutOfBounds(pos) {
+  Mouse.prototype.wins = function wins(pos) {
    
     // console.log(game.HEIGHT)
-    if (pos[0] < 10){
-            this.reset(11, pos[1])
-    } 
-    if (pos[1] < 10){
-        // console.log(pos[1])
-        this.reset(pos[0], 11)
-    } 
+    
      if(pos[0] > 1160) {
-        this.reset(1160, pos[1])
+        console.log("you win!!")
      }
-    if(pos[1] > 558){  
-        this.reset(pos[0], 558)
-    }
+     
   };
 
   Mouse.prototype.reset = function reset(x, y){

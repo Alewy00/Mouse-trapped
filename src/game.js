@@ -5,14 +5,15 @@ const Block = require("./block")
 const Button = require("./button")
 
 function Game() {
-    this.mouse = new Mouse(20, 600);
+    this.mouse = new Mouse(500, 200);
     walls = [];
     this.blocks = [];
     buttons = [];
     this.playing = false
     // boulder = "";
-    this.drawBlock(10, 700, 0, 0, "rgb(210,105,30)", false)
-    this.drawBlock(10, 700, 1190, 0, "rgb(210,105,30)", false)
+    this.drawBlock(10, 600, 0, 0, "rgb(210,105,30)", false)
+    this.drawBlock(10, 520, 1190, 0, "rgb(210,105,30)", false)
+    this.drawBlock(10, 70, 1190, 520, "rgb(0,0,0)", true)
     this.drawBlock(1200, 10, 0, 0, "rgb(210,105,30)", false)
     this.drawBlock(1200, 10, 0, 590, "rgb(210,105,30)", false) 
      // Blue Wall Top right
@@ -44,29 +45,6 @@ function Game() {
     // this.drawBlock(20, 250, 1000, 340, "rgba(140, 20, 252, 1)", true)
     // this.drawBlock(190, 20, 1000, 340, "rgba(140, 20, 252, 1)", true)
     this.drawButton(35, 35, 15 ,550, this.blocks,"rgba(140, 20, 252, 1)")
-    // this.drawButton(35, 35, 290 ,550, blocks,"rgba(140, 20, 252, 1)")
-    // Bottom Blue wall
-//    this.drawBlock(20, 100, 260, 490, "rgb(255,20,147)", true)
-//     this.drawBlock(20, 100, 340, 490, "rgb(255,20,147)", true)
-//     this.drawBlock(100, 20, 260, 490, "rgb(255,20,147)", true) 
-     // Yellow Maze
-    //  this.drawBlock(200, 20, 360, 490, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(400, 20, 260, 400, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(20, 100, 550, 490, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(200, 20, 550, 570, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(20, 100, 650, 400, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(20, 190, 730, 400, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(200, 20, 730, 400, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(20, 140, 910, 400, "rgba(245, 229, 27, 1)", false)
-    //  this.drawBlock(20, 60, 260, 340, "rgba(245, 229, 27, 1)", false)
-    //  this.drawButton(35, 35, 480 ,530, blocks,"rgba(245, 229, 27, 1)")
-
-
-
-
-
-
-
 
 
 }

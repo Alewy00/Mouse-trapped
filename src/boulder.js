@@ -1,11 +1,12 @@
 const game = require("./game");
-
+const sound = require("./sound");
 function Boulder(x, y, dir) {
-    this.width = 10;
-    this.height = 10;
+    this.width = 30;
+    this.height = 30;
     this.x = x;
     this.y = y;
     this.dir = dir;
+    splat = new sound("../dist/audio/splat.mp3")
     // this.collide.bind(this)
 }
 
@@ -18,9 +19,14 @@ Boulder.prototype.move = function move(dir) {
 Boulder.prototype.draw = function draw(ctx){
     this.move(this.dir);
     // this.collide(blocks)
-    ctx.fillStyle = "rgb(0,0,0)";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    
+    // ctx.fillStyle = "rgb(0,0,0)";
+    // ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.image = new Image();
+    this.image.src = '../dist/images/cheese3.png';
+    ctx.drawImage(this.image,
+        this.x,
+        this.y,
+        this.width, this.height);
 }
 
 Boulder.prototype.collide = function collide(blocks){
@@ -28,9 +34,11 @@ Boulder.prototype.collide = function collide(blocks){
     let flag = false
     blocks.forEach(function(block){
         // console.log(boulder)
-        if(block.collide(boulder, false)){
+        if(block.collideCheese(boulder)){
             // console.log("return true")
             flag = true
+            splat.play()
+
         }
     })
     return flag;    
@@ -41,7 +49,7 @@ Boulder.prototype.collideButton = function collideButton(buttons){
     let flag = false
     buttons.forEach(function(button){
         // console.log(button)
-        if(button.collideX(boulder)){
+        if(button.collideCheese(boulder)){
             // console.log("return true")
             flag = true
         }
