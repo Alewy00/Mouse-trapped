@@ -17,8 +17,8 @@ function Game() {
     this.maze = ""
     // boulder = "";
     this.drawBlock(10, 600, 0, 0, "rgb(210,105,30)", false)
-    this.drawBlock(10, 520, 1190, 0, "rgb(210,105,30)", false)
-    this.drawBlock(10, 70, 1190, 520, "rgb(0,0,0)", true)
+    this.drawBlock(10, 500, 1190, 0, "rgb(210,105,30)", false)
+    // this.drawBlock(10, 90, 1190, 500, "rgb(0,0,0)", true)
     this.drawBlock(1200, 10, 0, 0, "rgb(210,105,30)", false)
     this.drawBlock(1200, 10, 0, 590, "rgb(210,105,30)", false) 
      // Blue Wall Top right
