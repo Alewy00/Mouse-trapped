@@ -34,7 +34,7 @@ Mouse.prototype.draw = function draw(ctx, walls, blocks, buttons){
 Mouse.prototype.throwBoulder = function throwBoulder(){
     // console.log("mouse dir is" + this.dir)
 
-    this.boulder = new Boulder(this.x, this.y, this.dir);
+    this.boulder = new Boulder(this.x + 10, this.y + 8, this.dir);
     // console.log( this.boulder)
     // boulder.move(this.dir) 
 }
@@ -42,11 +42,13 @@ Mouse.prototype.throwBoulder = function throwBoulder(){
 Mouse.prototype.move = function move() {
     // console.log(this.speedX)
     // console.log(this.speedY)
+    // console.log("MOVE")
     this.x += this.speedX 
     this.y += this.speedY 
 };
 
 Mouse.prototype.stop = function stop() {
+    // console.log("stop")
     this.speedX = 0;
     this.speedY = 0;
   }

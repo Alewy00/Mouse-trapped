@@ -11,6 +11,7 @@ function Sound(src) {
     this.stop = function(){
       this.sound.pause();
     }
+ 
   }
 
 module.exports = Sound;
