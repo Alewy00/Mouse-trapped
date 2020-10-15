@@ -86,16 +86,16 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/images/yoda-stitch.jpg":
+// /***/ "./src/images/yoda-stitch.jpg":
 /*!************************************!*\
   !*** ./src/images/yoda-stitch.jpg ***!
   \************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+// /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open '/mnt/c/Users/Aaron/Dropbox/My PC (DESKTOP-BL24EQL)/Downloads/Javascript_Project/Prince_Link/src/images/yoda-stitch.jpg'\");\n\n//# sourceURL=webpack:///./src/images/yoda-stitch.jpg?");
+// eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open '/mnt/c/Users/Aaron/Dropbox/My PC (DESKTOP-BL24EQL)/Downloads/Javascript_Project/Prince_Link/src/images/yoda-stitch.jpg'\");\n\n//# sourceURL=webpack:///./src/images/yoda-stitch.jpg?");
 
-/***/ }),
+// /***/ }),
 
 /***/ "./src/index.js":
 /*!**********************!*\

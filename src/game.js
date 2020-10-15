@@ -201,7 +201,7 @@ Game.prototype.wins = function wins(ctx) {
         context = ctx
         game = this;
 
-        console.log(this.bottom)
+        // console.log(this.bottom)
         if(this.mouse.y > 290 && !this.bottom) {
             // console.log(this.bottom)
             setTimeout(function(){game.bottom = true},5000)
