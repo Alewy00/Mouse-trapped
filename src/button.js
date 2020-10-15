@@ -1,6 +1,6 @@
 const sound = require("./sound");
 const Game = require("./game")
-function Button(game, w, h, x, y, blocks, color, playing = false) {
+function Button( game, w, h, x, y, blocks, color, playing = false) {
     this.game = game;
     this.width = w;
     this.height = h;
@@ -8,6 +8,7 @@ function Button(game, w, h, x, y, blocks, color, playing = false) {
     this.y = y;
     this.blocks = blocks;
     this.color = color;
+    // this.ctx = ctx;
     mySound = new sound('src/audio/timer.mp3');
     countdown = new sound("src/audio/FinalCountDownTrimmed.mp3")
     buzzer = new sound("src/audio/buzzer.mp3")
@@ -28,15 +29,13 @@ Button.prototype.draw = function draw(ctx){
 
 Button.prototype.timer = function timer(block){
     mySound.play();
+    // console.log("timer hit")
     setTimeout(function(){ 
         block.tile = !block.tile 
-      
     }, 10000);
 }
 
-Button.prototype.drawMaze = function drawMaze(w,h,x,y, color, tile){
-    // this.game.drawBlock(w, h, x, y, color, tile)
-}
+
 Button.prototype.maze = function maze(block, played){
     // myAudio.duration > 0 && !myAudio.paused
 
@@ -56,7 +55,7 @@ Button.prototype.maze = function maze(block, played){
         this.game.drawBlock(20, 120, 910, 400, "rgba(245, 229, 27, 1)", false)
         this.game.drawBlock(20, 60, 260, 340, "rgba(245, 229, 27, 1)", false)
         // bottom yellow button
-        this.game.drawButton(35, 35, 1150 ,200, this.game.blocks,"rgba(245, 229, 27, 1)")
+        
         // bottom orange button
         this.game.drawButton(35, 35, 760 ,430, this.game.blocks,"rgba(248, 148, 6, 1)")
         // bottom purple button
@@ -100,29 +99,6 @@ Button.prototype.maze = function maze(block, played){
 }
 
 
-// Button.prototype.resetMaze = function resetMaze(){
-//     if (!this.game.playing){
-//         game = this.game;
-//         this.game.playing = true
-//         countdown.play();
-//     setTimeout(function(){  
-//         button.game.playing = false
-//         game.blocks.forEach(function(block){
-//             if(block.color == "rgb(255,20,147)" || block.color =="rgb(248,0,0)" || block.color == "rgba(140, 20, 252, 1)" || block.color == "rgb(255,20,147)" ||block.color == "rgba(248, 148, 6, 1)" || block.color == "rgba(245, 229, 27, 1)" ||block.color == "rgba(0, 181, 204, 1)"){
-//                 block.tile = false
-//                 purps.tile = true
-//                 purps2.tile = true
-//             }
-            
-//         })
-//         console.log("reset mouse")
-//         this.game.mouse.x = 100;
-//         this.game.mouse.y = 500;
-//         buzzer.play()
-//     }, 54000)
-// }
-// }
-
 Button.prototype.collideX = function collideX(mouse){
     // console.log(mouse)
     button = this;
@@ -139,6 +115,7 @@ Button.prototype.collideX = function collideX(mouse){
     // console.log(mouseSizeY)
     if ((mouseSizeX - 10  > blockLeft && mouseSizeX -10  < widthLeft ) &&
     (mouseSizeY + 20 > blockUp && mouseSizeY - 20 < widthUp )) {
+      
         console.log("button pressed")
         this.blocks.forEach(function(block){
             // console.log(color)
@@ -174,7 +151,9 @@ Button.prototype.collideCheese = function collideCheese(mouse){
     const mouseSizeY = mouse.y + mouse.height
     if ( (mouseSizeX  > blockLeft && mouseSizeX  < width ) &&
     (mouseSizeY > blockUp && mouseSizeY  < height )) {
+        this.game.countdown(10)
         this.blocks.forEach(function(block){
+
             // console.log("button is" + button.color)
             // console.log(block.color)
             if(block.color == button.color){

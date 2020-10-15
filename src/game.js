@@ -4,15 +4,16 @@ const Wall = require("./wall")
 const Block = require("./block")
 const Button = require("./button")
 const Timer = require("./timer")
-const Instructions = require("./instructions")
+// const Instructions = require("./instructions")
 function Game() {
+    ctx = "";
     this.mouse = new Mouse(500, 200);
     this.timer = new Timer(400, 200)
     walls = [];
     this.blocks = [];
     buttons = [];
     this.playing = false
-    this.instructions = new Instructions(400, 200)
+    // this.instructions = new Instructions(400, 200)
     first_time = true;
     this.maze = ""
     // boulder = "";
@@ -38,10 +39,12 @@ function Game() {
     this.drawBlock(190, 20, 10, 60, "rgb(248,0,0)", false)
     this.drawBlock(190, 21, 10, 277, "rgb(248,0,0)", false)
     this.drawButton(35, 35, 1150 ,150, this.blocks,"rgb(248,0,0)")
+    // yellow button
+    this.drawButton(35, 35, 20 ,200, this.blocks,"rgba(245, 229, 27, 1)")
     // Pink Wall 
     this.drawBlock(20, 265, 220, 60, "rgb(255,20,147)", false)
     this.drawBlock(230, 20, 10, 320, "rgb(255,20,147)", false) 
-    this.drawButton(35, 35, 1150 ,100, this.blocks,"rgb(255,20,147)")
+    this.drawButton(35, 35, 1150 ,60, this.blocks,"rgb(255,20,147)")
     // Orange Wall
     this.drawBlock(950, 20, 240, 320, "rgba(248, 148, 6, 1)", false)
     // this.drawButton(35, 35, 760 ,430, blocks,"rgba(248, 148, 6, 1)")
@@ -51,6 +54,7 @@ function Game() {
     // this.drawBlock(190, 20, 1000, 340, "rgba(140, 20, 252, 1)", true)
     this.drawButton(35, 35, 15 ,550, this.blocks,"rgba(140, 20, 252, 1)")
 
+    this.countdown.bind(this)
 
 }
 
@@ -60,6 +64,27 @@ Game.BG_COLOR = "#D3D3D3";
 Game.WIDTH = 1200;
 Game.HEIGHT = 600;
 
+    Game.prototype.countdown = function countdown(seconds){
+        let game = this;
+        let ctx = game.ctx
+        let over = false;
+        new_seconds = seconds
+        console.log(seconds)
+        // console.log(this.ctx)
+        ctx.font = "20px Arial";
+        ctx.strokeText(new_seconds, 400, 100)
+        if(new_seconds < 0 ){
+            console.log("over")
+            over = true;
+        }
+        if(!over){
+            // console.log(seconds)
+            setTimeout(function(){ 
+               game.countdown(new_seconds - 1 )
+            }, 1000);
+        // }
+    }
+}
     Game.prototype.drawWall = function drawWall(w, h, x, y) {
         let wall = new Wall(w, h, x, y)
         walls.push(wall)
@@ -77,6 +102,9 @@ Game.HEIGHT = 600;
     }
     
     Game.prototype.draw = function draw(ctx) {
+    this.ctx = ctx
+
+    // console.log(this.ctx)
     mouse = this.mouse
     ctx.clearRect(0, 0, Game.WIDTH, Game.HEIGHT);
     ctx.fillStyle = Game.BG_COLOR;

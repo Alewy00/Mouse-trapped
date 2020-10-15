@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.height = Game.HEIGHT;
     canvas.style="border:1px solid #000000;"
     const ctx = canvas.getContext("2d");
-    const game = new Game(); 
+    const game = new Game(ctx); 
     new GameView(game, ctx, game.mouse).start();
   });
   

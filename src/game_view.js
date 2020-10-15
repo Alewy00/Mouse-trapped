@@ -48,12 +48,17 @@ GameView.prototype.restart = function restart(){
 
 GameView.prototype.animate = function animate(time) {
  
-  if (GameView.key && GameView.key == "q") {
+  // if (GameView.key && GameView.key == "q") {
+  //   GameView.key = false;
+  //   buttons.forEach(function(obj){
+  //    obj.collideX(mouse)
+  // })
+  if (GameView.key && GameView.key == "Shift") {
+    mouse.x = 450
+    mouse.y = 200
     GameView.key = false;
-    buttons.forEach(function(obj){
-     obj.collideX(mouse)
-  })
-   }
+  }
+   
   if (GameView.key && GameView.key == "s") {
     mouse.speedY = 3;
     mouse.dir = [0, 1]; 
@@ -77,7 +82,7 @@ GameView.prototype.animate = function animate(time) {
     mouse.dir = [1,0];  
     mouse.speedX = 3; 
   }
-  if (GameView.key && GameView.key == "f") {
+  if (GameView.key && GameView.key == "Enter") {
     mouse.throwBoulder()
     GameView.key = false;
    

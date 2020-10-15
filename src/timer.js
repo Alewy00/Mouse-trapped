@@ -31,7 +31,7 @@ Timer.prototype.draw = function draw(ctx){
     }
     else if(this.seconds < 33  && this.minutes < 1){
         ctx.strokeText("You are currently stocked with infinite cheese", 260, 100)
-        ctx.strokeText("You can throw the Cheese with the F button", 260, 150)
+        ctx.strokeText("You can throw the Cheese with the the ENTER button", 260, 150)
     }
     else if(this.seconds < 43 && this.minutes < 1){
         ctx.strokeText("Try throwing the cheese at a button", 260, 100)
@@ -40,7 +40,7 @@ Timer.prototype.draw = function draw(ctx){
     else if(this.seconds < 60 && this.minutes < 1){
         ctx.font = "20px Arial";
         ctx.strokeText("Throwing cheese at a button will let you pass through that colored wall", 260, 100)
-        ctx.strokeText("If you get trapped behind a wall you can press Z to restart at the center", 260, 150)
+        ctx.strokeText("If you get trapped behind a wall you can press SHIFT to restart at the center", 260, 150)
         // ctx.font = "30px Arial";
     }
     else if(this.seconds < 10  && this.minutes < 2 ){
@@ -48,18 +48,19 @@ Timer.prototype.draw = function draw(ctx){
     }
     else if(this.seconds < 20  && this.minutes < 2 ){
         ctx.font = "20px Arial";
-        ctx.strokeText("We know it is infinite but the last mouse ate it and she.... ", 260, 150)
+        ctx.strokeText("We know it is infinite but the last mouse ate too much... ", 260, 150)
     }
     else if(this.seconds < 25  && this.minutes < 2 ){
         ctx.strokeText("Well lets not talk about the other subjects", 260, 150)
     } else if(this.seconds < 30  && this.minutes < 2 ){
         ctx.strokeText("erm I mean valued participants", 260, 150)
     }else if(this.seconds < 35 && this.minutes < 2 ){
-        ctx.strokeText("anyway don't eat it - the last mouse's intestine ruptured", 260, 150)
+        ctx.strokeText("anyways the exit is over here => ", 890, 560)
     }else if(this.seconds < 45 && this.minutes < 2 ){
-        ctx.strokeText("oops", 260, 150)
+        // ctx.strokeText("oops", 260, 150)
+
     }else if(this.seconds < 60 && this.minutes < 2 ){
-    ctx.strokeText("anyways the exit is over here => ", 890, 560)
+    // ctx.strokeText("anyways the exit is over here => ", 890, 560)
 }
   
 
