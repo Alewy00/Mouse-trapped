@@ -7,19 +7,31 @@ function GameView(game, ctx, mouse) {
     GameView.key = false;
     this.start.bind(this);
     this.down = true
-   
-}
-
-GameView.MOVES = {
-  w: [0, -1],
-  a: [-1, 0],
-  s: [0, 1],
-  d: [1, 0],
-};
-GameView.prototype.start = function start(){
-  game = this.game
+    this.timer = game.timer
+    
+  }
+  
+  GameView.MOVES = {
+    w: [0, -1],
+    a: [-1, 0],
+    s: [0, 1],
+    d: [1, 0],
+  };
+  GameView.prototype.startTime = function startTime(){
+    console.log("start timer")
+    console.log(this.game.timer)
+    interval = setInterval(function(){this.timer.seconds += 1}, 1000);
+  }
+  GameView.prototype.start = function start(){
+    game = this.game
+    this.startTime()
+    gameview = this
+    // console.log(this.timer)
+    // interval = setInterval(gameview.timer(), 1000);
   // this.instructions.draw(this.ctx)
-  setInterval(function(){ game.timer.seconds += 1 }, 1000);
+
+
+ 
   window.addEventListener('keydown', function (e) {
     if(this.down){
       GameView.key = e.key; 
@@ -46,6 +58,11 @@ GameView.prototype.restart = function restart(){
 
 
 
+
+GameView.prototype.timer = function timer() {
+  game.timer.seconds += 1
+  console.log(game.timer.seconds)
+}
 GameView.prototype.animate = function animate(time) {
  
   // if (GameView.key && GameView.key == "q") {
@@ -53,6 +70,16 @@ GameView.prototype.animate = function animate(time) {
   //   buttons.forEach(function(obj){
   //    obj.collideX(mouse)
   // })
+  if(this.game.won){
+    // console.log("stop")
+    // console.log(interval)
+    clearInterval(interval);
+  }
+
+  
+
+  
+
   if (GameView.key && GameView.key == "Shift") {
     mouse.x = 450
     mouse.y = 200

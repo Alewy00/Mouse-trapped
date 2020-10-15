@@ -26,10 +26,10 @@ Mouse.prototype.draw = function draw(ctx, walls, blocks, buttons){
     }
     }
     // console.log(this.dir)
+    // this.wins([this.x, this.y])
     if(this.dir[0] == -1){
         this.image = new Image();
         this.image.src = 'src/images/mouseLeft.png';
-        this.wins([this.x, this.y])
         ctx.drawImage(this.image,
             this.x,
             this.y,
@@ -37,7 +37,6 @@ Mouse.prototype.draw = function draw(ctx, walls, blocks, buttons){
     }else{
         this.image = new Image();
         this.image.src = 'src/images/mouse.png';
-        this.wins([this.x, this.y])
         ctx.drawImage(this.image,
             this.x,
             this.y,
@@ -71,15 +70,7 @@ Mouse.prototype.stop = function stop() {
     this.speedY = 0;
   }
 
-  Mouse.prototype.wins = function wins(pos) {
-   
-    // console.log(game.HEIGHT)
-    
-     if(pos[0] > 1160) {
-        console.log("you win!!")
-     }
-     
-  };
+ 
 
   Mouse.prototype.reset = function reset(x, y){
     this.x = x;

@@ -31,7 +31,7 @@ Button.prototype.timer = function timer(block){
     mySound.play();
     // console.log("timer hit")
     setTimeout(function(){ 
-        block.tile = !block.tile 
+        block.tile = false
     }, 10000);
 }
 
@@ -90,6 +90,10 @@ Button.prototype.maze = function maze(block, played){
                 }
                 
             })
+            if (this.game.won){
+                // mySound.pause()
+                return null;
+            }
             console.log("reset mouse")
             this.game.mouse.x = 100;
             this.game.mouse.y = 500;
@@ -151,13 +155,9 @@ Button.prototype.collideCheese = function collideCheese(mouse){
     const mouseSizeY = mouse.y + mouse.height
     if ( (mouseSizeX  > blockLeft && mouseSizeX  < width ) &&
     (mouseSizeY > blockUp && mouseSizeY  < height )) {
-        this.game.countdown(10)
+        click.play()
         this.blocks.forEach(function(block){
-
-            // console.log("button is" + button.color)
-            // console.log(block.color)
             if(block.color == button.color){
-                click.play()
                 console.log(block)
                 // console.log(block.tile)
                 block.tile = !block.tile
