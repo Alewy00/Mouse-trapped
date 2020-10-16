@@ -46,10 +46,10 @@ Block.prototype.collide = function collide(mouse, boulder){
     const height = this.y + this.height + 30
     const avgY = ((height + blockUp) / 2)
     const avgX = ((width + blockLeft) / 2)
-    const mouseSizeX = mouse.x + mouse.width
-    const mouseSizeY = mouse.y + mouse.height
-    if ( (!this.tile) && (mouseSizeX - 10  > blockLeft && mouseSizeX -10 < width ) &&
-    (mouseSizeY - 10 > blockUp && mouseSizeY  - 15 < height )) {
+    const mouseSizeX = mouse.x + mouse.width - 5
+    const mouseSizeY = mouse.y + mouse.height - 5
+    if ( (!this.tile) && (mouseSizeX  > blockLeft && mouseSizeX - 15 < width ) &&
+    (mouseSizeY - 5 > blockUp && mouseSizeY  - 15 < height )) {
         if (this.lastX && boulder) {
             console.log("x first")
             this.collideX(mouse, mouseSizeX, avgX)
@@ -86,14 +86,14 @@ Block.prototype.collide = function collide(mouse, boulder){
         }
     }
     Block.prototype.collideY = function collideY(mouse, mouseSizeY, avgY){  
-        if(mouseSizeY > avgY && mouse.speedX == 0 ) {
+     if(mouseSizeY <= avgY && mouse.speedX == 0 ){
+        console.log("reset up")
+        this.lastX = false 
+        mouse.resetUp()    
+     }else if(mouseSizeY > avgY && mouse.speedX == 0 ) {
             console.log("reset down")
             this.lastX = false 
             mouse.resetDown()
-        }else if(mouseSizeY <= avgY && mouse.speedX == 0 ){
-            console.log("reset up")
-            this.lastX = false 
-            mouse.resetUp()    
         }else{
             console.log("reset flag ")
             this.lastX = true

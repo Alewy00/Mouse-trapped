@@ -7,10 +7,15 @@ const Timer = require("./timer")
 // const Instructions = require("./instructions")
 function Game() {
     ctx = "";
+    this.blockade = new Block(20, 270, 220, 340,"rgb(210,105,30)", false)
     this.won = false
+    this.start = true;
+    this.retry = 0;
     this.mouse = new Mouse(510, 200);
-    this.timer = new Timer(400, 200)
+    // this.mouse = new Mouse(60, 500);
+    this.timer = new Timer(400, 200, this )
     walls = [];
+    this.seconds = 54
     this.blocks = [];
     buttons = [];
     this.bottom = false
@@ -140,35 +145,40 @@ Game.prototype.wins = function wins(ctx) {
         
         ctx.strokeStyle = "rgba(245, 229, 27, 1)";
         ctx.fillStyle = "rgba(248, 148, 6, 1)";
-        if(min <= 1){
+        if(min < 1){
             ctx.strokeText("Ranking: Julius Cheeser!", 100, 300)
             ctx.fillText("Ranking: Julius Cheeser!", 100, 300)
             ctx.strokeText("Next Rank: Highest Rank already!", 100, 400)
             ctx.fillText("Next Rank: Highest Rank already!", 100, 400)
         }
-        else if(min > 1 && sec <= 30){
+        else if(min >= 1 && sec <= 30){
             ctx.strokeText("Ranking: Mouseketeer!", 100, 300)
             ctx.strokeText("Next Rank: 00:01:00", 100, 400)
             ctx.fillText("Ranking: Mouseketeer!", 100, 300)
             ctx.fillText("Next Rank: 00:01:00", 100, 400)
         }
-        else if(min > 1 && sec < 60){
+        else if(min >= 1 && sec < 60){
             ctx.strokeText("Ranking: Mouserella! ", 100, 300)
             ctx.strokeText("Next Rank: 00:01:30", 100, 400)
             ctx.fillText("Ranking: Mouserella! ", 100, 300)
             ctx.fillText("Next Rank: 00:01:30", 100, 400)
         }
-        else if(min >= 2 ){
+        else if(min >= 2 && min <= 3 ){
             ctx.strokeText("Ranking: Mr Mice guy! ", 100, 300)
             ctx.strokeText("Next Rank: 00:01:59", 100, 400)
             ctx.fillText("Ranking: Mr Mice guy! ", 100, 300)
             ctx.fillText("Next Rank: 00:01:59", 100, 400)
         }
-        else if(min > 3 ){
+        else if(min <= 7 && min > 3 ){
             ctx.strokeText("Ranking: Anonymouse! ", 100, 300)
             ctx.strokeText("Next Rank: 00:03:00", 100, 400)
             ctx.fillText("Ranking: Anonymouse! ", 100, 300)
             ctx.fillText("Next Rank: 00:03:00", 100, 400)
+        }else{
+            ctx.strokeText("Ranking: Ruiner of birthdays! ", 100, 300)
+            ctx.strokeText("Next Rank: 00:07:00", 100, 400)
+            ctx.fillText("Ranking: Ruiner of birthdays!", 100, 300)
+            ctx.fillText("Next Rank: 00:07:00", 100, 400)
         }
         
     }
@@ -202,7 +212,7 @@ Game.prototype.wins = function wins(ctx) {
         game = this;
 
         // console.log(this.bottom)
-        if(this.mouse.y > 290 && !this.bottom) {
+        if(this.mouse.y > 290 && !this.bottom && this.start) {
             // console.log(this.bottom)
             setTimeout(function(){game.bottom = true},5000)
             // ctx.strokeStyle = "rgba(245, 229, 27, 1)";
@@ -213,7 +223,209 @@ Game.prototype.wins = function wins(ctx) {
             // setTimeout(function(){ ctx.strokeText("You thoeasy?", 300, 300)},5000)
         // ctx.strokeText("You can throw the Cheese with the the ENTER button", 260, 150)
         }
+        if(this.playing){
+           this.drawCount(ctx, this.seconds)
+           
+        }
+        else if(!this.playing){
+            this.seconds = 54
+         }
     }
+    Game.prototype.drawCount = function drawCount(ctx, seconds) {
+        ctx.font = "110px Arial";
+        ctx.strokeText(seconds, 480, 150)
+        ctx.font = "25px Arial";
+        if(this.retry == 0){
+        if(seconds > 48){
+            ctx.strokeText("If you can't make it in time the timer will reset you", 250, 200)
+        }
+        else if(seconds > 42){
+            ctx.strokeText("Difficult enough?", 250, 200)
+        }
+        else if(seconds > 35){
+            ctx.strokeText("Oh come on I thought mice were supposed to be smart", 250, 200)
+        }
+        else if(seconds > 25){
+            ctx.strokeText("ohhh I love watching them run", 250, 200)
+        }
+        else if(seconds > 18){
+            ctx.strokeText("Halfway done! Man I love this song", 250, 200)
+        }
+        else if(seconds > 14){
+            ctx.strokeText("We're leaving togetherrrrrrrr,", 250, 200)
+        }
+        else if(seconds > 10 ){
+            ctx.strokeText("But still it's fareeewellll", 250, 200)
+        }
+        else if(seconds > 6 ){
+            ctx.strokeText("And maybe we'll come backkkk", 250, 200)
+        }
+        else if(seconds > 2){
+            ctx.strokeText("To earth, who can tellllll?", 250, 200)
+        }
+        else if(seconds > 0){
+            ctx.strokeText("Times up!! MWAhahahaha", 250, 200)
+        }
+    }else if(this.retry == 1){
+        if(seconds > 48){
+            ctx.strokeText("I knew you wouldn't make it", 250, 200)
+        }
+        else if(seconds > 42){
+            ctx.strokeText("The last mouse was so much smarter", 250, 200)
+        }
+        else if(seconds > 37){
+            ctx.strokeText("Dum dum dum! The mouse is Dumb!", 250, 200)
+        }
+        else if(seconds > 32){
+            ctx.strokeText("Ok, maybe that wasn't so nice", 250, 200)
+        }
+        else if(seconds > 18){
+            ctx.strokeText("But I feel like in another life I could have been a lyricist", 250, 200)
+        }
+        else if(seconds > 14){
+            ctx.strokeText("The mouse is runninggggg", 250, 200)
+        }
+        else if(seconds > 10 ){
+            ctx.strokeText("But still he's losinggggg", 250, 200)
+        }
+        else if(seconds > 6 ){
+            ctx.strokeText("And surely he'll reset backkkk", 250, 200)
+        }
+        else if(seconds > 2){
+            ctx.strokeText("will he escape, who can telllllll?", 250, 200)
+        }
+        else if(seconds > 0){
+            ctx.strokeText("Okay that was bad", 250, 200)
+        }
+    }else if(this.retry == 2){
+        if(seconds > 45){
+            ctx.strokeText("OH YES! This song is SO much better", 250, 200)
+        }
+        else if(seconds > 43){
+            ctx.strokeText("Never gonna escape!", 250, 200)
+        }
+        else if(seconds > 41){
+            ctx.strokeText("Never gonna eaaat the cheeeseeee", 250, 200)
+        }
+        else if(seconds > 39){
+            ctx.strokeText("Always gonna run around", 250, 200)
+        }
+        else if(seconds > 36){
+            ctx.strokeText("and looosee", 250, 200)
+        }
+        else if(seconds > 34){
+            ctx.strokeText("We've known eachother", 250, 200)
+        }
+        else if(seconds > 27 ){
+            ctx.strokeText("for one dayyyy", 250, 200)
+        }
+        else if(seconds > 20 ){
+            ctx.strokeText("Okay even I am getting tired of this shtick", 250, 200)
+        }
+        else if(seconds > 15){
+            ctx.strokeText("Please get out- It's my kids birthday", 250, 200)
+        }
+        else if(seconds > 10){
+            ctx.strokeText("She's turning 11 today", 250, 200)
+        }
+        else if(seconds > 0){
+            ctx.strokeText("You aren't gonna make it are you?", 250, 200)
+        }
+
+    }else if(this.retry == 3){
+        // new Block(60, 20, 10, 520,"rgb(210,105,30)", false).draw(ctx)
+       
+        this.blockade.draw(ctx)
+        this.blockade.collide(this.mouse, true);
+        // this.drawBlock(60, 20, 10, 520, "rgb(210,105,30)", false)
+        if(seconds > 50){
+            ctx.strokeText("Ok kiddo, We need to talk", 250, 200)
+        }
+        else if(seconds > 45){
+            ctx.strokeText("Do you WANT to stay here forever???", 250, 200)
+        }
+        else if(seconds > 40){
+            ctx.strokeText("I really need to get home", 250, 200)
+        }
+        else if(seconds > 35){
+            ctx.strokeText("You clearly need some help on this one", 250, 200)
+        }
+        else if(seconds > 30){
+            ctx.strokeText("First you wanna hit the orange button", 250, 200)
+            ctx.strokeText("^ Here", 770, 500)
+        }
+        else if(seconds > 26){
+            ctx.strokeText("Actually DON'T - Just hit SHIFT", 250, 200)
+            // ctx.strokeText("Yeah you didn't think of that did you?", 250, 250)
+        }
+        else if(seconds > 23){
+            // ctx.strokeText("Actually DON'T - Just hit SHIFT", 250, 200)
+            ctx.strokeText("Yeah you didn't think of that did you?", 250, 200)
+        }
+        else if(seconds > 20){
+            ctx.strokeText("The last mouse did...", 250, 200)
+            // ctx.strokeText("ahhh I wish she didn't blow up", 250, 250)
+        }
+        else if(seconds > 17){
+            // ctx.strokeText("The last mouse did...", 250, 200)
+            ctx.strokeText("ahhh I wish she didn't blow up", 250, 200)
+        }
+        else if(seconds > 14){
+            ctx.strokeText("No - it's not cheating, I never said you could't do it", 250, 200)
+            // ctx.strokeText("And for the record, you CAN complete the puzzle without using SHIFT", 250, 250)
+        }
+        else if(seconds > 6){
+            ctx.font = "20px Arial";
+            // ctx.strokeText("No - it's not cheating, I never said you could't do it", 250, 200)
+            ctx.strokeText("And for the record, you CAN complete the puzzle without using SHIFT", 250, 250)
+        }
+        else if(seconds > 0){
+            // ctx.font = "25px Arial";
+            ctx.strokeText("Ok I am going to reset it now - please finish", 250, 200)
+        }
+       
+
+    }else if(this.retry == 5){
+        if(seconds > 50){
+            ctx.strokeText("That... was not great  ", 250, 200)
+        }
+        else if(seconds > 45){
+            ctx.strokeText("I don't think you are going to finish", 250, 200)
+        }
+        else if(seconds > 40){
+            ctx.strokeText("It's passed 5 o'clock and my daughter is going to cry", 250, 200)
+        }
+        else if(seconds > 35){
+            ctx.strokeText(" You like to see children cry. Is that it?", 250, 200)
+        }
+        else if(seconds > 30){
+            ctx.strokeText("No I am not going to let you ruin my kids day", 250, 200)
+        }
+        else if(seconds > 20){
+            this.blocks.forEach(function(block){
+                    block.tile = true
+                })
+            ctx.strokeText("Ok now get out of here", 250, 250)
+        }
+        else if(seconds > 15){
+            // ctx.strokeText("Actually DON'T - Just hit SHIFT", 250, 200)
+            ctx.strokeText("Leave!!", 250, 200)
+        }
+        else if(seconds > 10){
+            ctx.strokeText("Just go...", 250, 200)
+            // ctx.strokeText("ahhh I wish she didn't blow up", 250, 250)
+        }
+        else if(seconds > 5){
+            // ctx.strokeText("The last mouse did...", 250, 200)
+            ctx.strokeText("FOR THE LOVE OF GOD LEAVE", 250, 200)
+        }
+        else if(seconds > 0){
+            ctx.strokeText("Please........", 250, 200)
+            // ctx.strokeText("And for the record, you CAN complete the puzzle without using SHIFT", 250, 250)
+        }
+    }
+}
+
     Game.prototype.draw = function draw(ctx) {
         this.ctx = ctx
         const game = this

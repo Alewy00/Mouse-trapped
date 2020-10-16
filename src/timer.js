@@ -1,8 +1,9 @@
 
 
-function Timer(x, y) {
+function Timer(x, y, game) {
     this.x = x
     this.y = y
+    this.game = game
     this.seconds = 0;
     this.minutes = 0;
     this.hours = 0;
@@ -19,6 +20,7 @@ Timer.prototype.draw = function draw(ctx){
     // ctx.fillStyle = "red";
     ctx.font = "20px Arial";
     this.change()
+    if(this.game.start){
     // console.log(this.seconds)
     if(this.seconds < 5 && this.minutes < 1){
         ctx.strokeText("Hello there little one!", 260, 100)
@@ -41,7 +43,7 @@ Timer.prototype.draw = function draw(ctx){
     else if(this.seconds < 40 && this.minutes < 1){
         ctx.font = "20px Arial";
         ctx.strokeText("Throwing cheese at a button will let you pass through that colored wall", 250, 100)
-        ctx.strokeText("Y ou can press SHIFT to restart at the center", 250, 150)
+        ctx.strokeText("You can press SHIFT to restart at the center", 250, 150)
         // ctx.font = "30px Arial";
     }
     else if(this.seconds < 47 && this.minutes < 1){
@@ -62,6 +64,7 @@ Timer.prototype.draw = function draw(ctx){
     }else if(this.seconds < 20 && this.minutes < 2 ){
         ctx.strokeText("anyways the exit is over here => ", 890, 560)
     }
+}
 
     if(this.minutes < 10 && this.seconds >= 10){
         ctx.strokeText("0" + this.hours + ":0"+ this.minutes + ":" + this.seconds, 500, 300)

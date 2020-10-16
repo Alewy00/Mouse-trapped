@@ -13,6 +13,7 @@ function Button( game, w, h, x, y, blocks, color, playing = false) {
     countdown = new sound("src/audio/FinalCountDownTrimmed.mp3")
     buzzer = new sound("src/audio/buzzer.mp3")
     click = new sound("src/audio/button.mp3")
+    RickRoll = new sound("src/audio/RickRoll.mp3")
     this.countdownPlaying =  playing
     this.timer.bind(this);
     reset = false
@@ -42,6 +43,7 @@ Button.prototype.maze = function maze(block, played){
     
     if (!this.game.playing){
         if(!reset){
+        this.game.start = false
         game = this.game;
         this.game.playing = true
         countdown.play();
@@ -70,7 +72,11 @@ Button.prototype.maze = function maze(block, played){
         reset = true;
         }else{
             this.game.playing = true
-            countdown.play();
+            if(this.game.retry == 1){
+                countdown.play();
+            }else{
+                RickRoll.play()
+            }
         }
         game.blocks.forEach(function(block){
             if(block.color != "rgba(140, 20, 252, 1)"){
@@ -79,8 +85,11 @@ Button.prototype.maze = function maze(block, played){
                 // purps2.tile = true
             }
         })
+        interval = setInterval(function(){button.game.seconds -= 1}, 1000);
         setTimeout(function(){  
+            clearInterval(interval);
             button.game.playing = false
+            button.game.retry += 1
             game.blocks.forEach(function(block){
                 if(block.color != "rgba(140, 20, 252, 1)"){
                     block.tile = false
