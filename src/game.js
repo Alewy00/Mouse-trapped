@@ -13,7 +13,7 @@ function Game() {
     this.retry = 0;
     this.mouse = new Mouse(510, 200);
     // this.mouse = new Mouse(60, 500);
-    this.timer = new Timer(400, 200, this )
+    this.timer = new Timer(400, 200, this)
     walls = [];
     this.seconds = 54
     this.blocks = [];
@@ -151,25 +151,25 @@ Game.prototype.wins = function wins(ctx) {
             ctx.strokeText("Next Rank: Highest Rank already!", 100, 400)
             ctx.fillText("Next Rank: Highest Rank already!", 100, 400)
         }
-        else if(min >= 1 && sec <= 30){
+        else if(min < 2 && sec <= 30){
             ctx.strokeText("Ranking: Mouseketeer!", 100, 300)
             ctx.strokeText("Next Rank: 00:01:00", 100, 400)
             ctx.fillText("Ranking: Mouseketeer!", 100, 300)
             ctx.fillText("Next Rank: 00:01:00", 100, 400)
         }
-        else if(min >= 1 && sec < 60){
+        else if(min < 2 ){
             ctx.strokeText("Ranking: Mouserella! ", 100, 300)
             ctx.strokeText("Next Rank: 00:01:30", 100, 400)
             ctx.fillText("Ranking: Mouserella! ", 100, 300)
             ctx.fillText("Next Rank: 00:01:30", 100, 400)
         }
-        else if(min >= 2 && min <= 3 ){
+        else if(min < 3 ){
             ctx.strokeText("Ranking: Mr Mice guy! ", 100, 300)
             ctx.strokeText("Next Rank: 00:01:59", 100, 400)
             ctx.fillText("Ranking: Mr Mice guy! ", 100, 300)
             ctx.fillText("Next Rank: 00:01:59", 100, 400)
         }
-        else if(min <= 7 && min > 3 ){
+        else if(min < 7 ){
             ctx.strokeText("Ranking: Anonymouse! ", 100, 300)
             ctx.strokeText("Next Rank: 00:03:00", 100, 400)
             ctx.fillText("Ranking: Anonymouse! ", 100, 300)

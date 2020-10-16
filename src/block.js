@@ -38,8 +38,6 @@ Block.prototype.draw = function draw(ctx){
 
 
 Block.prototype.collide = function collide(mouse, boulder){
-    let flagX = false;
-    let flagY = false;
     const blockLeft = this.x  
     const width = this.x + this.width + 30
     const blockUp = this.y 
@@ -48,8 +46,8 @@ Block.prototype.collide = function collide(mouse, boulder){
     const avgX = ((width + blockLeft) / 2)
     const mouseSizeX = mouse.x + mouse.width - 5
     const mouseSizeY = mouse.y + mouse.height - 5
-    if ( (!this.tile) && (mouseSizeX  > blockLeft && mouseSizeX - 15 < width ) &&
-    (mouseSizeY - 5 > blockUp && mouseSizeY  - 15 < height )) {
+    if ( (!this.tile) && (mouseSizeX - 5  > blockLeft && mouseSizeX - 10 < width ) &&
+    (mouseSizeY - 5 > blockUp && mouseSizeY  - 10 < height )) {
         if (this.lastX && boulder) {
             console.log("x first")
             this.collideX(mouse, mouseSizeX, avgX)
@@ -70,15 +68,19 @@ Block.prototype.collide = function collide(mouse, boulder){
 
 
     Block.prototype.collideX = function collideX(mouse, mouseSizeX, avgX){   
-        if(mouseSizeX <= avgX && mouse.speedY == 0 ){
+        if(mouseSizeX < avgX && mouse.speedY == 0 ){
             console.log("reset left")
             this.lastX = true 
             mouse.resetLeft()
+            // mouse.speedX = -.5
+            mouse.stop()
             // return true;
         }else if (mouseSizeX > avgX && mouse.speedY == 0  ){
             console.log("reset right")
             this.lastX = true 
             mouse.resetRight()
+            // mouse.speedX = .5
+            mouse.stop()
             // return true;
         }else{
             ("reset flag to false")
@@ -86,14 +88,18 @@ Block.prototype.collide = function collide(mouse, boulder){
         }
     }
     Block.prototype.collideY = function collideY(mouse, mouseSizeY, avgY){  
-     if(mouseSizeY <= avgY && mouse.speedX == 0 ){
+     if(mouseSizeY < avgY && mouse.speedX == 0 ){
         console.log("reset up")
         this.lastX = false 
         mouse.resetUp()    
+        // mouse.speedY = -.5
+        mouse.stop()
      }else if(mouseSizeY > avgY && mouse.speedX == 0 ) {
             console.log("reset down")
             this.lastX = false 
             mouse.resetDown()
+            // mouse.speedY = .5
+            mouse.stop()
         }else{
             console.log("reset flag ")
             this.lastX = true

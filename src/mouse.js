@@ -78,22 +78,22 @@ Mouse.prototype.stop = function stop() {
   };
 
   Mouse.prototype.resetLeft = function resetLeft(){
-    this.x -= 5
+    this.x -= 7
     this.y = this.y 
   };
 
   Mouse.prototype.resetUp = function resetUp(){
     this.x = this.x
-    this.y -= 5
+    this.y -= 7
   };
 
   Mouse.prototype.resetDown = function resetDown(){
     this.x = this.x
-    this.y += 5
+    this.y += 7
   };
 
   Mouse.prototype.resetRight = function resetRight(){
-    this.x += 5
+    this.x += 7
     this.y = this.y
   };
 
