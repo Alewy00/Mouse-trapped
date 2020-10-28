@@ -1,5 +1,6 @@
 const Game = require("./game")
 const GameView = require("./game_view");
+import './styles/index.scss';
 
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementsByTagName("canvas")[0];

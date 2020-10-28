@@ -34,14 +34,28 @@ Mouse.prototype.draw = function draw(ctx, walls, blocks, buttons){
             this.x,
             this.y,
             this.width, this.height);
-    }else{
-        this.image = new Image();
-        this.image.src = 'src/images/mouse.png';
-        ctx.drawImage(this.image,
-            this.x,
-            this.y,
-            this.width, this.height);
-    }
+    }else if(this.dir[0] == 1){
+      this.image = new Image();
+      this.image.src = 'src/images/mouse.png';
+      ctx.drawImage(this.image,
+          this.x,
+          this.y,
+          this.width, this.height);
+  }else if(this.dir[1] == -1){
+    this.image = new Image();
+    this.image.src = 'src/images/mouseback.png';
+    ctx.drawImage(this.image,
+        this.x,
+        this.y,
+        this.width, this.height);
+}else if(this.dir[1] == 1){
+  this.image = new Image();
+  this.image.src = 'src/images/mousefront.png';
+  ctx.drawImage(this.image,
+      this.x,
+      this.y,
+      this.width, this.height);
+}
 
     // ctx.fillStyle = "rgb(248,0,0)";
     // ctx.fillRect(this.x, this.y, this.width, this.height);

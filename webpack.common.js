@@ -1,6 +1,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const outputDir = "./dist";
+// import './src/styles/index.scss';
 
 module.exports = {
   entry: path.resolve(__dirname, "src", "index.js"), //
@@ -37,8 +38,10 @@ module.exports = {
               hmr: process.env.NODE_ENV === "development",
             },
           },
+          'style-loader',
           "css-loader",
           "postcss-loader",
+          'sass-loader',
         ],
       },
       {

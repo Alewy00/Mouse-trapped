@@ -4,6 +4,7 @@ function Sound(src) {
     this.sound.setAttribute("preload", "auto");
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
+    this.sound.volume = .1
     document.body.appendChild(this.sound);
     this.play = function(){
       this.sound.play();
