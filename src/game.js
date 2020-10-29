@@ -112,8 +112,8 @@ Game.prototype.wins = function wins(ctx) {
                 ctx.strokeText("Your Time: " + "0" + timer.hours + ":0"+ timer.minutes + ":" + timer.seconds, 460, 100)
                 ctx.fillText("Your Time: " + "0" + timer.hours + ":0"+ timer.minutes + ":" + timer.seconds, 460, 100)
             }else if(timer.minutes >= 10 && timer.seconds < 10){
-                ctx.fillText("Your Time: " +  "0" + timer.hours + ":"+ timer.minutes + ":0" + timer.seconds, 460, 300)
-                ctx.strokeText("Your Time: " +  "0" + timer.hours + ":"+ timer.minutes + ":0" + timer.seconds, 460, 300)
+                ctx.fillText("Your Time: " +  "0" + timer.hours + ":"+ timer.minutes + ":0" + timer.seconds, 460, 100)
+                ctx.strokeText("Your Time: " +  "0" + timer.hours + ":"+ timer.minutes + ":0" + timer.seconds, 460, 100)
             }else if(timer.minutes < 10 && timer.seconds < 10){
                 ctx.fillText("Your Time: " + "0" + timer.hours + ":0"+ timer.minutes + ":0" + timer.seconds, 460, 100)
                 ctx.strokeText("Your Time: " + "0" + timer.hours + ":0"+ timer.minutes + ":0" + timer.seconds, 460, 100)
@@ -152,31 +152,31 @@ Game.prototype.wins = function wins(ctx) {
         }
         else if(min < 2 && sec <= 30){
             ctx.strokeText("Ranking: Mouseketeer!", 100, 300)
-            ctx.strokeText("Next Rank: 00:01:00", 100, 400)
             ctx.fillText("Ranking: Mouseketeer!", 100, 300)
+            ctx.strokeText("Next Rank: 00:01:00", 100, 400)
             ctx.fillText("Next Rank: 00:01:00", 100, 400)
         }
         else if(min < 2 ){
             ctx.strokeText("Ranking: Mouserella! ", 100, 300)
-            ctx.strokeText("Next Rank: 00:01:30", 100, 400)
             ctx.fillText("Ranking: Mouserella! ", 100, 300)
+            ctx.strokeText("Next Rank: 00:01:30", 100, 400)
             ctx.fillText("Next Rank: 00:01:30", 100, 400)
         }
         else if(min < 3 ){
             ctx.strokeText("Ranking: Mr Mice guy! ", 100, 300)
-            ctx.strokeText("Next Rank: 00:01:59", 100, 400)
             ctx.fillText("Ranking: Mr Mice guy! ", 100, 300)
+            ctx.strokeText("Next Rank: 00:01:59", 100, 400)
             ctx.fillText("Next Rank: 00:01:59", 100, 400)
         }
         else if(min < 7 ){
             ctx.strokeText("Ranking: Anonymouse! ", 100, 300)
-            ctx.strokeText("Next Rank: 00:03:00", 100, 400)
             ctx.fillText("Ranking: Anonymouse! ", 100, 300)
+            ctx.strokeText("Next Rank: 00:03:00", 100, 400)
             ctx.fillText("Next Rank: 00:03:00", 100, 400)
         }else{
             ctx.strokeText("Ranking: Ruiner of birthdays! ", 100, 300)
-            ctx.strokeText("Next Rank: 00:07:00", 100, 400)
             ctx.fillText("Ranking: Ruiner of birthdays!", 100, 300)
+            ctx.strokeText("Next Rank: 00:07:00", 100, 400)
             ctx.fillText("Next Rank: 00:07:00", 100, 400)
         }
         
