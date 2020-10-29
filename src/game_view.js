@@ -20,8 +20,8 @@ function GameView(game, ctx, mouse) {
     d: [1, 0],
   };
   GameView.prototype.startTime = function startTime(){
-    console.log("start timer")
-    console.log(this.game.timer)
+   
+    
     this.interval = setInterval(function(){this.timer.seconds += 1}, 1000);
   }
   GameView.prototype.start = function start(){
@@ -63,7 +63,7 @@ GameView.prototype.restart = function restart(){
 
 GameView.prototype.timer = function timer() {
   game.timer.seconds += 1
-  console.log(game.timer.seconds)
+
 }
 GameView.prototype.animate = function animate(time) {
  
@@ -74,7 +74,7 @@ GameView.prototype.animate = function animate(time) {
   // })
   if(this.game.won){
     // console.log("stop")
-    console.log(this.interval)
+   
     clearInterval(this.interval);
   }
 

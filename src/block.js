@@ -11,8 +11,7 @@ function Block(width, height, x, y, color, tile) {
 
 Block.prototype.draw = function draw(ctx){
     // ctx = gameView.ctx;
-    // console.log(this.height);
-    // console.log("wall drew")
+
   
     if (!this.tile){
         ctx.save();
@@ -49,19 +48,19 @@ Block.prototype.collide = function collide(mouse, boulder){
     if ( (!this.tile) && (mouseSizeX - 5  > blockLeft && mouseSizeX - 10 < width ) &&
     (mouseSizeY - 5 > blockUp && mouseSizeY  - 10 < height )) {
         if (this.lastX && boulder) {
-            console.log("x first")
+        
             this.collideX(mouse, mouseSizeX, avgX)
             this.collide(mouse)
         }else if(!this.lastX && boulder){
-            console.log("y first")
+         
             this.collideY(mouse, mouseSizeY, avgY)
             this.collide(mouse)
         }else{
-            // console.log("true")
+          
             return true;
         }
     }
-    // console.log("false")
+   
     return false;
 }
 
@@ -69,14 +68,14 @@ Block.prototype.collide = function collide(mouse, boulder){
 
     Block.prototype.collideX = function collideX(mouse, mouseSizeX, avgX){   
         if(mouseSizeX < avgX && mouse.speedY == 0 ){
-            console.log("reset left")
+         
             this.lastX = true 
             mouse.resetLeft()
             // mouse.speedX = -.5
             mouse.stop()
             // return true;
         }else if (mouseSizeX > avgX && mouse.speedY == 0  ){
-            console.log("reset right")
+        
             this.lastX = true 
             mouse.resetRight()
             // mouse.speedX = .5
@@ -89,19 +88,18 @@ Block.prototype.collide = function collide(mouse, boulder){
     }
     Block.prototype.collideY = function collideY(mouse, mouseSizeY, avgY){  
      if(mouseSizeY < avgY && mouse.speedX == 0 ){
-        console.log("reset up")
+       
         this.lastX = false 
         mouse.resetUp()    
         // mouse.speedY = -.5
         mouse.stop()
      }else if(mouseSizeY > avgY && mouse.speedX == 0 ) {
-            console.log("reset down")
+          
             this.lastX = false 
             mouse.resetDown()
             // mouse.speedY = .5
             mouse.stop()
         }else{
-            console.log("reset flag ")
             this.lastX = true
         }
     }

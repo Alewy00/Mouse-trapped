@@ -103,7 +103,7 @@ Button.prototype.maze = function maze(block, played){
                 // mySound.pause()
                 return null;
             }
-            console.log("reset mouse")
+          
             this.game.mouse.x = 100;
             this.game.mouse.y = 500;
             buzzer.play()
@@ -129,10 +129,10 @@ Button.prototype.collideX = function collideX(mouse){
     if ((mouseSizeX - 10  > blockLeft && mouseSizeX -10  < widthLeft ) &&
     (mouseSizeY + 20 > blockUp && mouseSizeY - 20 < widthUp )) {
       
-        console.log("button pressed")
+       
         this.blocks.forEach(function(block){
             // console.log(color)
-            console.log(block.color)
+            
             if(block.color == this.color){
                 click.play()
                 block.tile = !block.tile
@@ -167,7 +167,7 @@ Button.prototype.collideCheese = function collideCheese(mouse){
         click.play()
         this.blocks.forEach(function(block){
             if(block.color == button.color){
-                console.log(block)
+               
                 // console.log(block.tile)
                 block.tile = !block.tile
                 if(block.color == "rgb(50,205,50)" ){

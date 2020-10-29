@@ -73,11 +73,10 @@ Game.prototype.wins = function wins(ctx) {
     timer = this.timer
     if(this.mouse.x  > 1160) {
         this.won = true
-        console.log("you win!!")
         this.mouse.x = 20
         this.mouse.y = 520
     }else if(this.won){
-        console.log("won!")
+    
         if(this.mouse.x < 0){
             this.mouse.x = 500
             this.mouse.y = 200
