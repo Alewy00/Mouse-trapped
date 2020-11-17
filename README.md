@@ -5,25 +5,23 @@
  
  - User can see entire map (non-scrolling)
  
- - User cannot lose, but there is a Quit button
+ -A running Timer to keep track of User Ranking
  
  
  ## Puzzle Explanation
  
- The character must collect 3 keys to win the game (player starts with the first key and a boulder)
+ The character must escape the cage to win the game 
  
- 
- - The puzzles consist of clicking buttons to move blocks into 2 forms
+ - The puzzles consist of throwing cheese at buttons to move blocks into 2 forms
  
  1) Tile form (Character can move over block)
  
  2) Wall form (Character cannot move past block)
  
- - The user can roll the boulder to pass puzzles
- 
  ## Detailed walkthrough of puzzles
  
  Puzzle 1) 
+  ![Screenshot (76)](https://user-images.githubusercontent.com/54489423/99449997-226f9e80-28ee-11eb-99c4-40ef251841ec.png)
  - Player shoots cheese at Green Button to bring block into **tile** form 
  - Player shoots cheese at Blue Button to bring block into **tile** form 
  - Player shoots cheese at Red Button to bring block into **tile** form
@@ -32,14 +30,18 @@
  - Now that all blocks are in **tile** form, the user can now progress to the bottom left corner of the map
  
  Puzzle 2) 
-  (subject to change)
- - Player puts the green blocks in room 2 into tile form
- - Player rolls the boulder onto the green/pink button 
- - player can now retrieve the final key
+ ![Screenshot (77)](https://user-images.githubusercontent.com/54489423/99451419-2bfa0600-28f0-11eb-8e5a-1538b0a9871b.png)
+ 
+ - Player shoots cheese at Purple Button to make the Yellow Maze appear 
+ - Player runs through the maze to shoot cheese at the Orange Button
+ - Player must shoot cheese at the Pink button to Unlock the blocks around the Purple Button
+ - Player runs through the maze to shoot cheese at the Purple Button
+ - Player Optionally can shoot the Yellow Button to turn the Maze into **tile** form
+ - Player must reach the mousehole before the Timer resets Puzzle 2
  
  
  
- ![Screenshot (76)](https://user-images.githubusercontent.com/54489423/99449997-226f9e80-28ee-11eb-99c4-40ef251841ec.png)
+
  
  ## MVP
 
@@ -59,7 +61,7 @@
 
 ## Technologies
 
-I will be using Canvas to complete this project
+I will be using Canvas and Javascript to complete this project
 
 
 ## Timeframe
