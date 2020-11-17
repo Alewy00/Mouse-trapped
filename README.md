@@ -24,9 +24,12 @@
  ## Detailed walkthrough of puzzles
  
  Puzzle 1) 
- - Player Clicks on Green button to bring block into **tile** form 
- - Player places boulder parrallel from red button 
- - Now that red blocks are in tile form in room #2 player can click blue button and come back to retrieve the yellow key
+ - Player shoots cheese at Green Button to bring block into **tile** form 
+ - Player shoots cheese at Blue Button to bring block into **tile** form 
+ - Player shoots cheese at Red Button to bring block into **tile** form
+ - Player shoots cheese at Green Button again Since the 10 second timer has reverted the Green Block into **wall** form
+ - Player shoots cheese at Pink Button to bring block into **tile** form
+ - Now that all blocks are in **tile** form, the user can now progress to the bottom left corner of the map
  
  Puzzle 2) 
   (subject to change)
