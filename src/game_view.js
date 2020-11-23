@@ -87,6 +87,16 @@ GameView.prototype.animate = function animate(time) {
     mouse.y = 200
     GameView.key = false;
   }
+
+  // if (GameView.key && GameView.key == "q") {
+  //   mouse.x = 450
+  //   mouse.y = 200
+  //   GameView.key = false;
+  //   // this.timer.seconds = 0;
+  //   // this.game = new Game(ctx);
+  //   // this.start();
+
+  // }
    
   if (GameView.key && GameView.key == "s") {
     mouse.speedY = 3;
