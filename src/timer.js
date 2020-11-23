@@ -43,7 +43,7 @@ Timer.prototype.draw = function draw(ctx){
     else if(this.seconds < 40 && this.minutes < 1){
         ctx.font = "20px Arial";
         ctx.strokeText("Throwing cheese at a button will let you pass through that colored wall", 250, 100)
-        ctx.strokeText("You can press TAB to restart at the center", 250, 150)
+        ctx.strokeText("You can press 'C' to restart at the center", 250, 150)
         // ctx.font = "30px Arial";
     }
     else if(this.seconds < 47 && this.minutes < 1){

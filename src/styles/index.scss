@@ -1,20 +1,31 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden ;
+  
+}
+.canvas{
+  margin-left: 30px;
+  position: relative;
+  top: -50px;
+}
 .modal {
     font-family: 'Indie Flower', cursive;
     display: none; 
     position: absolute; 
     z-index: 1; 
     left: 0;
-    top: 0;
+    top: -100px;
     width: 100%; 
     height: 150%; 
     overflow: auto;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
+    overflow-y: hidden;
   }
 
 
   .github{
-    bottom: 30px;
+    bottom: 70px;
       font-size: 20px;
     font-family: 'Indie Flower', cursive;
       text-decoration: none;
@@ -34,7 +45,7 @@
     font-family: 'Indie Flower', cursive;
     text-decoration: none;
     position: relative;
-    bottom: 30px;
+    bottom: 70px;
     left: 900px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -47,8 +58,22 @@
 
   #myBtn{
     position: relative;
-    bottom: 30px;
-    right: 50px;
+    bottom: 70px;
+    right: 150px;
+    font-size: 20px;
+    font-family: 'Indie Flower', cursive;
+    border-radius: 10px;
+    height: 54px;
+    width: 120px;
+    background-color: aqua;
+    color: blue;
+    border: none;
+  }
+
+  #reset{
+    position: relative;
+    bottom: 70px;
+    right: 90px;
     font-size: 20px;
     font-family: 'Indie Flower', cursive;
     border-radius: 10px;
@@ -62,11 +87,11 @@
 
   
   .title{
-      margin: 0px;
+    margin: 0px;
     color: indianred;
     position: relative;
     left: 400px;
-    top: 50px;
+    top: 0px;
     font-family: 'Indie Flower', cursive;
     font-size: 420%;
      

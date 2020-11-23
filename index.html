@@ -12,10 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
     <!-- <canvas id="myCanvas" width="600" height="400" style="border:1px solid #000000;"></canvas> -->
-    <title>Document</title>
+    <!-- <title>Document</title> -->
   </head>
   <body>
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal" style="display: block;" >
       <div class="modal-content">
         <span class="close">&times;</span>
         <h1 id="header">INSTRUCTIONS</h1>
@@ -27,19 +27,24 @@
         <p>When you hit a colored button with cheese, that colored wall will become crosssable</p>
         <p> The Green wall has a 10 second timer, after 10 seconds the wall reverts to being uncrossable and the button must be pressed again</p>
         <p> Win by moving the mouse through the hole of the bottom right of the cage</p>
-        <p>Press "TAB" to teleport to the middle of the cage </p>
+        <p>Press "C" to teleport to the middle of the cage </p>
       </div>
     </div>
+    <div>
     <h1 class="title">MouseTrapped!</h1>
-    <a class="linkden" href="https://www.linkedin.com/in/aaron-lewis-9867821b8/">Linkden</a>
-    <a class="github"href="https://github.com/Alewy00/Mouse-trapped">Github</a>
+    <a class="linkden" href="https://www.linkedin.com/in/aaron-lewis-9867821b8/" target="_blank">Linkden</a>
+    <a class="github"href="https://github.com/Alewy00/Mouse-trapped" target="_blank">Github</a>
     <button id="myBtn">Instructions</button>
+    <button id="reset">Reset Game</button>
+    </div>
     <script>
       // Get the modal
       var modal = document.getElementById("myModal");
       
       // Get the button that opens the modal
       var btn = document.getElementById("myBtn");
+
+      var reset = document.getElementById("reset");
       
       // Get the <span> element that closes the modal
       var span = document.getElementsByClassName("close")[0];
@@ -47,6 +52,11 @@
       // When the user clicks the button, open the modal 
       btn.onclick = function() {
         modal.style.display = "block";
+      }
+
+      reset.onclick = function() {
+        window.location.reload()
+        // modal.style.display = "none";
       }
       
       // When the user clicks on <span> (x), close the modal
@@ -61,7 +71,7 @@
         }
       }
       </script>
-    <canvas></canvas>
+    <canvas class="canvas"></canvas>
     <script src="./dist/main.js"></script>
   </body>
 </html>

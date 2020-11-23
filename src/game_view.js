@@ -82,7 +82,7 @@ GameView.prototype.animate = function animate(time) {
 
   
 
-  if (GameView.key && GameView.key == "Tab") {
+  if (GameView.key && GameView.key == "c") {
     mouse.x = 450
     mouse.y = 200
     GameView.key = false;
