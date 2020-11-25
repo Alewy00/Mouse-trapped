@@ -1,11 +1,11 @@
  
  ## Overview
  
- I would like to create a mini zelda dungeon with small easy puzzles
+ I created a mini zelda dungeon type game with small easy puzzles
  
- - User can see entire map (non-scrolling)
+ - User can see entire map
  
- -A running Timer to keep track of User Ranking
+ - A running Timer to keep track of User Ranking
  
  
  ## Puzzle Explanation
@@ -57,18 +57,18 @@
 
 ## Technologies
 
-I will be using Canvas and Javascript to complete this project
+I used Canvas and Javascript to complete this project
 
 
 ## Timeframe
 
 - Day 1, I would like to have a room that a character can move around in 
 
-- Day 2, I would like to have an inteactive puzzle in day the first room
+- Day 2, I would like to have the first interactive puzzle completed
 
-- Day3, Complete other 2 rooms with puzzles 
+- Day3, I would like to have the maze puzzle completed
 
-- Day 4 , add styling 
+- Day 4, add styling 
 
-- Day 5- complete bonsus features (A boss level
+- Day 5, complete bonsus features (Timer and Rankings)
 
