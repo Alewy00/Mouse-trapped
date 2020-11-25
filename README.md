@@ -21,7 +21,7 @@
  ## Detailed walkthrough of puzzles
  
  Puzzle 1) 
-  ![Screenshot (76)](https://user-images.githubusercontent.com/54489423/99449997-226f9e80-28ee-11eb-99c4-40ef251841ec.png)
+  ![mousetrapped](https://user-images.githubusercontent.com/54489423/100244351-d2539600-2f04-11eb-8885-33302cfe3755.jpg)
  - Player shoots cheese at Green Button to bring block into **tile** form 
  - Player shoots cheese at Blue Button to bring block into **tile** form 
  - Player shoots cheese at Red Button to bring block into **tile** form
@@ -30,8 +30,7 @@
  - Now that all blocks are in **tile** form, the user can now progress to the bottom left corner of the map
  
  Puzzle 2) 
- ![Screenshot (77)](https://user-images.githubusercontent.com/54489423/99451419-2bfa0600-28f0-11eb-8e5a-1538b0a9871b.png)
- 
+ ![mousetrapped2](https://user-images.githubusercontent.com/54489423/100244436-eac3b080-2f04-11eb-9849-02334d4de264.jpg)
  - Player shoots cheese at Purple Button to make the Yellow Maze appear 
  - Player runs through the maze to shoot cheese at the Orange Button
  - Player must shoot cheese at the Pink button to Unlock the blocks around the Purple Button
